@@ -65,47 +65,31 @@ import MobileMenu from './MobileMenu.astro';
 <MobileMenu currentPath={currentPath} isOpen={false} />
 
 <script>
+  import { toggleMenu, closeMenu } from '../utils/menu';
+
   // ハンバーガーメニューの制御
   function initHeaderMenu() {
     const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
     
-    if (!hamburgerBtn) return;
+    if (!hamburgerBtn || !mobileMenu) return;
 
     // ボタンクリックイベント
     hamburgerBtn.addEventListener('click', () => {
-      const isActive = hamburgerBtn.classList.contains('active');
-      
-      if (isActive) {
-        // メニューを閉じる
-        hamburgerBtn.classList.remove('active');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-        hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
-        
-        // モバイルメニューを閉じる
-        const closeFn = (window as any).closeMobileMenu;
-        if (closeFn) closeFn();
-      } else {
-        // メニューを開く
-        hamburgerBtn.classList.add('active');
-        hamburgerBtn.setAttribute('aria-expanded', 'true');
-        hamburgerBtn.setAttribute('aria-label', 'メニューを閉じる');
-        
-        // モバイルメニューを開く
-        const openFn = (window as any).openMobileMenu;
-        if (openFn) openFn();
-      }
+      toggleMenu(hamburgerBtn, mobileMenu);
     });
 
     // ウィンドウサイズ変更時の処理
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) {
         // デスクトップサイズになったらメニューを閉じる
-        hamburgerBtn.classList.remove('active');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-        hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
-        
-        const closeFn = (window as any).closeMobileMenu;
-        if (closeFn) closeFn();
+        const wasClosed = closeMenu(mobileMenu);
+        if (wasClosed) {
+          // ボタンの状態もリセット
+          hamburgerBtn.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+          hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
+        }
       }
     });
   }

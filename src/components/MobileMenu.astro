@@ -193,70 +193,59 @@ function isActiveLink(href: string, currentPath: string): boolean {
 </style>
 
 <script>
+  import { closeMenu } from '../utils/menu';
+
   // モバイルメニューの制御
   function initMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (!mobileMenu) return;
 
-    // メニューを閉じる関数
-    function closeMobileMenu() {
-      if (mobileMenu) {
-        mobileMenu.classList.remove('open');
-      }
-      // オーバーレイは使用しない
-      
-      // ハンバーガーボタンの状態をリセット
-      const hamburgerBtn = document.getElementById('hamburger-btn');
-      if (hamburgerBtn) {
-        hamburgerBtn.classList.remove('active');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-        hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
-      }
-      
-      // body のスクロールを復活
-      document.body.style.overflow = '';
-    }
-
-    // メニューを開く関数
-    function openMobileMenu() {
-      if (mobileMenu) {
-        mobileMenu.classList.add('open');
-      }
-      // オーバーレイは使用しない
-      
-      // body のスクロールを無効化
-      document.body.style.overflow = 'hidden';
-    }
-
     // ESCキーで閉じる
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
-        closeMobileMenu();
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        closeMenu(mobileMenu);
+        
+        // ハンバーガーボタンの状態をリセット
+        if (hamburgerBtn) {
+          hamburgerBtn.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+          hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
+        }
       }
     });
 
     // リンククリック時に閉じる
-    if (mobileMenu) {
-      const menuLinks = mobileMenu.querySelectorAll('a[href^="/"]');
-      menuLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          // 遷移を妨げないようにタイマーを削除し、即座にメニューを閉じる
-          closeMobileMenu();
-        });
+    const menuLinks = mobileMenu.querySelectorAll('a[href^="/"]');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        closeMenu(mobileMenu);
+        
+        // ハンバーガーボタンの状態をリセット
+        if (hamburgerBtn) {
+          hamburgerBtn.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+          hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
+        }
       });
-    }
+    });
 
     // ウィンドウサイズ変更時の処理
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) {
-        closeMobileMenu();
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        closeMenu(mobileMenu);
+        
+        // ハンバーガーボタンの状態をリセット
+        if (hamburgerBtn) {
+          hamburgerBtn.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+          hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
+        }
       }
     });
-
-    // グローバルにアクセス可能にする
-    (window as any).openMobileMenu = openMobileMenu;
-    (window as any).closeMobileMenu = closeMobileMenu;
   }
 
   // 初期化
