@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTA from '../components/CTA.astro';
+import { PAGE_LINKS } from '../config/links';
 
 const title = "実績 - フリーランスエンジニアのポートフォリオ";
 const description = "これまで手がけたプロジェクトをご紹介します。Webアプリケーション開発から AI技術活用まで、幅広い領域での実績があります。";
@@ -497,7 +498,7 @@ const description = "これまで手がけたプロジェクトをご紹介し�
       </div>
       
       <div class="text-center mt-12" data-animation="fade-in-up delay-1000">
-        <a href="/experience" class="inline-block px-8 py-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-all transform hover:scale-105">
+        <a href={PAGE_LINKS.EXPERIENCE} class="inline-block px-8 py-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-all transform hover:scale-105">
           詳しい職歴を見る
         </a>
       </div>

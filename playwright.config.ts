@@ -10,7 +10,7 @@ export default defineConfig({
   // CI環境での設定
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: 4, // 同時実行数を4に固定
   
   // タイムアウト設定
   timeout: 30000,

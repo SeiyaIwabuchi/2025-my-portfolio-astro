@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { PAGE_LINKS } from '../config/links';
+---
+
+<Layout
+  title="ライセンス"
+  description="岩渕 誠也のポートフォリオサイトで使用しているライブラリやアセットのライセンス情報をご確認ください。"
+>
+  <!-- License Section -->
+  <section class="py-12 px-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          ライセンス
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          このサイトで使用しているライブラリ、アセット、コンテンツのライセンス情報を記載しています。
+        </p>
+        <div class="mt-6 text-sm text-gray-500">
+          最終更新日: 2025年9月7日
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="prose prose-lg max-w-none">
+        <!-- 1. サイトの著作権 -->
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <span class="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">1</span>
+            サイトの著作権
+          </h2>
+          <p class="text-gray-700">
+            このポートフォリオサイトのコンテンツ（文章、デザイン、レイアウト等）の著作権は、岩渕 誠也に帰属します。
+          </p>
+          <p class="text-gray-700 mt-4">
+            ただし、以下のセクションで明記されているライブラリやアセットについては、それぞれのライセンスが適用されます。
+          </p>
+        </section>
+
+        <!-- 2. 使用ライブラリ -->
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <span class="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">2</span>
+            使用ライブラリ
+          </h2>
+          <p class="text-gray-700 mb-4">
+            このサイトは以下のオープンソースライブラリを使用しています：
+          </p>
+          <div class="space-y-4">
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Astro</h3>
+              <p class="text-gray-700 mb-2">Webフレームワーク</p>
+              <p class="text-gray-600 text-sm">ライセンス: MIT License</p>
+              <a href="https://github.com/withastro/astro/blob/main/LICENSE" class="text-blue-600 hover:underline text-sm" target="_blank" rel="noopener noreferrer">ライセンス全文を見る</a>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Tailwind CSS</h3>
+              <p class="text-gray-700 mb-2">CSSフレームワーク（@astrojs/tailwind, @tailwindcss/typography含む）</p>
+              <p class="text-gray-600 text-sm">ライセンス: MIT License</p>
+              <a href="https://github.com/tailwindlabs/tailwindcss/blob/master/LICENSE" class="text-blue-600 hover:underline text-sm" target="_blank" rel="noopener noreferrer">ライセンス全文を見る</a>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">TypeScript</h3>
+              <p class="text-gray-700 mb-2">プログラミング言語・コンパイラ</p>
+              <p class="text-gray-600 text-sm">ライセンス: Apache License 2.0</p>
+              <a href="https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt" class="text-blue-600 hover:underline text-sm" target="_blank" rel="noopener noreferrer">ライセンス全文を見る</a>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Playwright</h3>
+              <p class="text-gray-700 mb-2">E2Eテストフレームワーク</p>
+              <p class="text-gray-600 text-sm">ライセンス: Apache License 2.0</p>
+              <a href="https://github.com/microsoft/playwright/blob/main/LICENSE" class="text-blue-600 hover:underline text-sm" target="_blank" rel="noopener noreferrer">ライセンス全文を見る</a>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Vitest</h3>
+              <p class="text-gray-700 mb-2">ユニットテストフレームワーク</p>
+              <p class="text-gray-600 text-sm">ライセンス: MIT License</p>
+              <a href="https://github.com/vitest-dev/vitest/blob/main/LICENSE" class="text-blue-600 hover:underline text-sm" target="_blank" rel="noopener noreferrer">ライセンス全文を見る</a>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Testing Library</h3>
+              <p class="text-gray-700 mb-2">テストユーティリティライブラリ（@testing-library/dom, @testing-library/jest-dom）</p>
+              <p class="text-gray-600 text-sm">ライセンス: MIT License</p>
+              <a href="https://github.com/testing-library/dom-testing-library/blob/main/LICENSE" class="text-blue-600 hover:underline text-sm" target="_blank" rel="noopener noreferrer">ライセンス全文を見る</a>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">JSDOM</h3>
+              <p class="text-gray-700 mb-2">DOM環境シミュレーター（テスト用）</p>
+              <p class="text-gray-600 text-sm">ライセンス: MIT License</p>
+              <a href="https://github.com/jsdom/jsdom/blob/master/LICENSE.txt" class="text-blue-600 hover:underline text-sm" target="_blank" rel="noopener noreferrer">ライセンス全文を見る</a>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">Node.js</h3>
+              <p class="text-gray-700 mb-2">JavaScriptランタイム環境（v22.19.0 Volta管理）</p>
+              <p class="text-gray-600 text-sm">ライセンス: MIT License</p>
+              <a href="https://github.com/nodejs/node/blob/main/LICENSE" class="text-blue-600 hover:underline text-sm" target="_blank" rel="noopener noreferrer">ライセンス全文を見る</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. アセットとコンテンツ -->
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <span class="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">3</span>
+            アセットとコンテンツ
+          </h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">画像素材</h3>
+              <p class="text-gray-700">
+                サイトで使用している画像は、原則として自作または商用利用可能なフリー素材を使用しています。出典やクレジットの表記が必要な場合は、該当ページ内または本ページに明記します。
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">フォント</h3>
+              <p class="text-gray-700">
+                Google Fonts 提供の「Noto Sans JP」を使用しています。ライセンス: SIL Open Font License 1.1
+              </p>
+              <a href="https://github.com/googlefonts/noto-fonts/blob/main/LICENSE" class="text-blue-600 hover:underline text-sm" target="_blank" rel="noopener noreferrer">Noto Sans JP ライセンス</a>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">アイコン</h3>
+              <p class="text-gray-700">
+                Font Awesome Free を使用しています。アイコン: CC BY 4.0 / フォント: SIL OFL 1.1 / コード: MIT License
+              </p>
+              <a href="https://fontawesome.com/license/free" class="text-blue-600 hover:underline text-sm" target="_blank" rel="noopener noreferrer">Font Awesome Free ライセンス</a>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">動画素材</h3>
+              <p class="text-gray-700">
+                サイトで使用する動画は自作または提供元のライセンスに従って使用しています。第三者素材を使用する場合は、提供元・ライセンス種別・必要なクレジットを該当ページ内または本ページに記載します。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. MIT License -->
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <span class="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">4</span>
+            MIT License
+          </h2>
+          <p class="text-gray-700 mb-4">
+            このサイトのオリジナルコード部分については、MIT Licenseを適用します：
+          </p>
+          <div class="bg-gray-50 p-6 rounded-lg font-mono text-sm text-gray-800">
+            <p>Copyright (c) 2025 Seiya Iwabuchi</p>
+            <br>
+            <p>Permission is hereby granted, free of charge, to any person obtaining a copy</p>
+            <p>of this software and associated documentation files (the "Software"), to deal</p>
+            <p>in the Software without restriction, including without limitation the rights</p>
+            <p>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</p>
+            <p>copies of the Software, and to permit persons to whom the Software is</p>
+            <p>furnished to do so, subject to the following conditions:</p>
+            <br>
+            <p>The above copyright notice and this permission notice shall be included in all</p>
+            <p>copies or substantial portions of the Software.</p>
+            <br>
+            <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</p>
+            <p>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</p>
+            <p>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</p>
+            <p>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</p>
+            <p>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</p>
+            <p>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</p>
+            <p>SOFTWARE.</p>
+          </div>
+        </section>
+
+        <!-- 5. お問い合わせ -->
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <span class="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">5</span>
+            お問い合わせ
+          </h2>
+          <p class="text-gray-700 mb-4">
+            ライセンスに関するお問い合わせは、以下の連絡先までお願いいたします：
+          </p>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <div class="space-y-2 text-gray-700">
+              <p><strong>運営者:</strong> 岩渕 誠也</p>
+              <p><strong>メール:</strong> <a href="mailto:0123ook.biz@gmail.com" class="text-blue-600 hover:underline">0123ook.biz@gmail.com</a></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-12 pt-8 border-t border-gray-200">
+          <a href={PAGE_LINKS.HOME} class="inline-flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            ホームに戻る
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose {
+    color: #374151;
+  }
+
+  .prose h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose ul {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.25rem;
+  }
+</style>

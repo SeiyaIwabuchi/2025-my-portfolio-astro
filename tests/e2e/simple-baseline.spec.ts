@@ -13,6 +13,7 @@ test.describe('📸 ベースライン・スクリーンショット生成', () 
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto('/');
     await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(1000);
     
     // ページの最下部までゆっくりスクロールしてフェードインアニメーションを発火させる
     await page.evaluate(async () => {
@@ -54,6 +55,7 @@ test.describe('📸 ベースライン・スクリーンショット生成', () 
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
     await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(1000);
     
     // ページの最下部までゆっくりスクロールしてフェードインアニメーションを発火させる
     await page.evaluate(async () => {
@@ -95,6 +97,7 @@ test.describe('📸 ベースライン・スクリーンショット生成', () 
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
     await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(1000);
     
     // メニューを開く
     await page.locator('#hamburger-btn').click();
@@ -124,6 +127,7 @@ test.describe('📸 ベースライン・スクリーンショット生成', () 
       await page.setViewportSize({ width: 1920, height: 1080 });
       await page.goto(path);
       await page.waitForLoadState('networkidle');
+      await page.waitForTimeout(1000);
       
       // ページの最下部までゆっくりスクロールしてフェードインアニメーションを発火させる
       await page.evaluate(async () => {
@@ -168,6 +172,7 @@ test.describe('📸 ベースライン・スクリーンショット生成', () 
       await page.setViewportSize({ width: 375, height: 667 });
       await page.goto(path);
       await page.waitForLoadState('networkidle');
+      await page.waitForTimeout(1000);
       
       // ページの最下部までゆっくりスクロールしてフェードインアニメーションを発火させる
       await page.evaluate(async () => {
