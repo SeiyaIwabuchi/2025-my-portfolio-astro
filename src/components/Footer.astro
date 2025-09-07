@@ -1,28 +1,5 @@
 ---
-// フッターリンクの定義
-const footerLinks = [
-  { href: "/about", label: "自己紹介" },
-  { href: "/skills", label: "スキル" },
-  { href: "/works", label: "実績" },
-  { href: "/experience", label: "職歴" },
-  { href: "/contact", label: "お問い合わせ" }
-];
-
-// SNSリンクの定義
-const socialLinks = [
-  {
-    href: "https://zenn.dev/seichan",
-    icon: "fas fa-blog",
-    label: "Zenn",
-    external: true
-  },
-  {
-    href: "mailto:0123ook.biz@gmail.com",
-    icon: "fas fa-envelope",
-    label: "Email",
-    external: false
-  }
-];
+import { footerLinks, socialLinks, contactEmail } from '../config/links';
 
 // 現在の年を取得
 const currentYear = new Date().getFullYear();

@@ -17,9 +17,7 @@ const {
   canonicalUrl
 } = Astro.props;
 
-// サイト設定
-const SITE_NAME = "Seiya Iwabuchi's Portfolio";
-const SITE_URL = "https://your-portfolio-domain.com";
+import { SITE_NAME, SITE_URL } from '../config/links';
 
 // メタデータの構築
 const fullTitle = title === "ホーム" ? SITE_NAME : `${title} | ${SITE_NAME}`;

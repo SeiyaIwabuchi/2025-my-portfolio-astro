@@ -6,14 +6,7 @@ export interface Props {
 const { currentPath = "/" } = Astro.props;
 
 // ナビゲーションアイテムの定義
-const navItems = [
-  { href: "/", label: "ホーム" },
-  { href: "/about", label: "自己紹介" },
-  { href: "/skills", label: "スキル" },
-  { href: "/works", label: "実績" },
-  { href: "/experience", label: "職歴" },
-  { href: "/contact", label: "お問い合わせ" }
-];
+import { navItems } from '../config/links';
 
 // 現在のページかどうかを判定する関数
 function isCurrentPage(href: string, currentPath: string): boolean {

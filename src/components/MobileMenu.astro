@@ -7,14 +7,7 @@ export interface Props {
 const { currentPath, isOpen } = Astro.props;
 
 // ナビゲーションメニューの定義
-const navItems = [
-  { href: "/", label: "ホーム" },
-  { href: "/about", label: "自己紹介" },
-  { href: "/skills", label: "スキル" },
-  { href: "/works", label: "実績" },
-  { href: "/experience", label: "職歴" },
-  { href: "/contact", label: "お問い合わせ" }
-];
+import { navItems, socialLinks, contactEmail } from '../config/links';
 
 // アクティブ状態の判定
 function isActiveLink(href: string, currentPath: string): boolean {
@@ -71,28 +64,20 @@ function isActiveLink(href: string, currentPath: string): boolean {
     <div class="space-y-3">
       <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wider px-4">Contact & SNS</h3>
       <div class="space-y-1">
-        <a 
-          href="https://zenn.dev/seichan"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center px-4 py-3 text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
-          data-animation="slide-in-right"
-          style="animation-delay: 600ms"
-        >
-          <i class="fas fa-blog mr-3 text-sm w-4"></i>
-          <span>Zenn ブログ</span>
-          <i class="fas fa-external-link-alt ml-auto text-xs text-gray-400"></i>
-        </a>
-        
-        <a 
-          href="mailto:0123ook.biz@gmail.com"
-          class="flex items-center px-4 py-3 text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
-          data-animation="slide-in-right"
-          style="animation-delay: 700ms"
-        >
-          <i class="fas fa-envelope mr-3 text-sm w-4"></i>
-          <span>メール</span>
-        </a>
+  {socialLinks.map((social) => (
+          <a
+            href={social.href}
+            target={social.external ? '_blank' : undefined}
+            rel={social.external ? 'noopener noreferrer' : undefined}
+            class="flex items-center px-4 py-3 text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
+            data-animation="slide-in-right"
+            style={social.href.includes('zenn') ? 'animation-delay: 600ms' : 'animation-delay: 700ms'}
+          >
+            <i class={`${social.icon} mr-3 text-sm w-4`}></i>
+            <span>{social.label}</span>
+            {social.external && <i class="fas fa-external-link-alt ml-auto text-xs text-gray-400"></i>}
+          </a>
+        ))}
       </div>
     </div>
 
