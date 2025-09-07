@@ -1,0 +1,694 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+
+const title = "実績 - フリーランスエンジニアのポートフォリオ";
+const description = "これまで手がけたプロジェクトをご紹介します。Webアプリケーション開発から AI技術活用まで、幅広い領域での実績があります。";
+---
+
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <section class="pt-12 pb-8 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-animation="fade-in-up">
+        <h1 class="text-4xl md:text-5xl font-bold text-black mb-6">Works</h1>
+        <p class="text-xl text-gray-600">制作実績・ポートフォリオ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 1: Gadget Compass -->
+  <section class="pb-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+        <div class="grid lg:grid-cols-2 gap-0">
+            <!-- Images -->
+            <div data-animation="fade-in-left" class="relative">
+                <div class="h-96 lg:h-full bg-white flex flex-col justify-center items-center space-y-4 p-8">
+                    <!-- PC版画像 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-sm">
+                        <img src="/images/gadget-compass-pc.png" alt="ガジェットコンパス PC版" class="w-full h-auto object-cover">
+                        <div class="p-2 text-center">
+                            <p class="text-gray-600 text-sm font-medium">Desktop View</p>
+                        </div>
+                    </div>
+                    <!-- スマホ版画像 -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden w-24">
+                        <img src="/images/ガジェットコンパス_スマホ.png" alt="ガジェットコンパス スマホ版" class="w-full h-auto object-cover">
+                        <div class="p-1 text-center">
+                            <p class="text-gray-600 text-xs">Mobile</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+          <!-- Content -->
+          <div data-animation="fade-in-right" class="p-8 lg:p-12">
+            <div class="mb-6">
+              <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">ガジェットコンパス</h2>
+              <p class="text-gray-600 text-lg">ガジェット・製品レビューサイト</p>
+            </div>
+            
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-xl font-bold text-black mb-3">概要</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    2025年7月に開始された、ガジェット・製品レビューサイトです。このプロジェクトは、わずか67日間という短期間で開発されました。
+                    開発期間中には合計161件のコミットが行われ、1日平均2.7件という継続的な開発ペースを維持しました。
+                    パフォーマンス面では、PSIスコアでモバイル・デスクトップともに97点という高い評価を獲得し、
+                    LCP（Largest Contentful Paint）は0.4秒という驚異的な高速表示を実現しています。
+                </p>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold text-black mb-2">制作期間</h4>
+                  <p class="text-gray-700">2025年7月〜 継続開発中</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-black mb-2">担当範囲</h4>
+                  <p class="text-gray-700">企画・設計・実装・運用すべて担当</p>
+                </div>
+              </div>
+              
+              <div>
+                <h4 class="font-semibold text-black mb-3">使用技術</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Astro.js</span>
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">TypeScript</span>
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">AWS S3</span>
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">AWS CloudFront</span>
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">AWS Route53</span>
+                </div>
+              </div>
+              
+              <div>
+                <h4 class="font-semibold text-black mb-3">URL・リンク</h4>
+                <a href="https://gadget-compass.com/articles/gadget-compass-development-story-astro-typescript-high-performance-review-site/index.html" 
+                    target="_blank" 
+                    class="inline-flex items-center text-black hover:text-gray-600 transition-colors">
+                    <i class="fas fa-external-link-alt mr-2"></i>
+                    gadget-compass.com（公式サイト）
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Details: Gadget Compass -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div data-animation="fade-in-left">
+          <h3 class="text-2xl font-bold text-black mb-6">工夫した点・課題解決</h3>
+          <div class="space-y-6">
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <div class="flex items-start space-x-4">
+                <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i class="fas fa-tachometer-alt text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-black mb-2">高速表示への徹底的なこだわり</h4>
+                  <p class="text-gray-700 text-sm">
+                    Astro(SSG) + AWS S3 + Cloudfrontのシンプルな構成でありながら高速な配信システムを構築しました。
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <div class="flex items-start space-x-4">
+                <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i class="fas fa-font text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-black mb-2">独自フォント最適化エンジン</h4>
+                  <p class="text-gray-700 text-sm">
+                    PSIスコア97点を達成！独自開発のフォント最適化エンジンにより、重いフォントも高速読み込みを実現しました。
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <div class="flex items-start space-x-4">
+                <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i class="fas fa-share-alt text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-black mb-2">OGP画像自動生成</h4>
+                  <p class="text-gray-700 text-sm">
+                    OGPの画像を記事から自動生成するため、SNSシェアで注目されやすいです。
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <div class="flex items-start space-x-4">
+                <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i class="fas fa-mobile-alt text-white text-sm"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-black mb-2">モバイルファーストの高速化</h4>
+                  <p class="text-gray-700 text-sm">
+                    読み込み速度が高速なため低速になりやすいモバイル回線でも素早く表示できます。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div data-animation="fade-in-right">
+          <h3 class="text-2xl font-bold text-black mb-6">学んだこと</h3>
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h4 class="font-semibold text-black mb-2">SEO対策関連技術</h4>
+              <p class="text-gray-700 text-sm">検索エンジン最適化の実践的ノウハウ</p>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h4 class="font-semibold text-black mb-2">フォント最適化</h4>
+              <p class="text-gray-700 text-sm">独自サブセット生成による革新的パフォーマンス改善</p>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h4 class="font-semibold text-black mb-2">困難でも継続の精神</h4>
+              <p class="text-gray-700 text-sm">技術的困難に直面しても継続する重要性</p>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h4 class="font-semibold text-black mb-2">完璧主義と実用主義の戦略的使い分け</h4>
+              <p class="text-gray-700 text-sm">状況に応じたアプローチの選択</p>
+            </div>
+          </div>
+          
+          <!-- Performance Stats -->
+          <div class="mt-8 bg-black text-white rounded-lg p-6">
+            <h4 class="font-bold mb-4">パフォーマンス指標</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="text-center">
+                <div class="text-3xl font-bold mb-2">97</div>
+                <div class="text-gray-300 text-sm">PSI Score</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold mb-2">0.4s</div>
+                <div class="text-gray-300 text-sm">LCP</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold mb-2">67</div>
+                <div class="text-gray-300 text-sm">開発日数</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold mb-2">161</div>
+                <div class="text-gray-300 text-sm">総コミット数</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 2: AI Video Generator -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg">
+        <div class="grid lg:grid-cols-2 gap-0">
+          <!-- Video/Demo -->
+          <div data-animation="fade-in-left" class="relative">
+            <div class="h-96 lg:h-full bg-gradient-to-br from-gray-200 to-gray-300 flex flex-col justify-center items-center p-8">
+              <div class="bg-black rounded-lg w-full max-w-lg aspect-video flex items-center justify-center overflow-hidden">
+                <video 
+                  controls 
+                  class="w-full h-full object-cover rounded-lg"
+                  poster="/images/video-thumbnail.jpg"
+                >
+                  <source src="/videos/final_video.mp4" type="video/mp4">
+                  <div class="text-center text-white">
+                    <i class="fas fa-video text-4xl mb-2"></i>
+                    <p>動画デモ</p>
+                    <p class="text-sm text-gray-300 mt-2">お使いのブラウザは動画をサポートしていません</p>
+                  </div>
+                </video>
+              </div>
+              <p class="text-center text-gray-600 text-sm mt-4">動画自動生成システムのデモ</p>
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <div data-animation="fade-in-right" class="p-8 lg:p-12">
+            <div class="mb-6">
+              <h2 class="text-3xl md:text-4xl font-bold text-black mb-4 flex items-center">
+                <i class="fas fa-film mr-3"></i>
+                Auto Movie Generator
+              </h2>
+              <p class="text-gray-600 text-lg">AI駆動動画自動生成システム</p>
+            </div>
+            
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-xl font-bold text-black mb-3">概要</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  このプロジェクトは、<strong>ガジェットコンパスのブログ記事を動画化したい</strong>というニーズから始まりました。
+                  手動での動画制作の手間を省き、サイト流入を増やすため、効率的に高品質な動画コンテンツを生成する方法を模索。
+                  AI技術の進展により音声合成や画像生成が容易になったことから、これらを活用した完全自動化の実現を目指しました。
+                </p>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold text-black mb-2">制作期間</h4>
+                  <p class="text-gray-700">2025年8月〜 13日間</p>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-black mb-2">担当範囲</h4>
+                  <p class="text-gray-700">企画から実装まですべて担当</p>
+                </div>
+              </div>
+              
+              <div>
+                <h4 class="font-semibold text-black mb-3">使用技術</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Anthropic Claude</span>
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Python</span>
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">MoviePy</span>
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Docker</span>
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Voicevox Engine</span>
+                  <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Marp</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Details: AI Video Generator -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-16" data-animation="fade-in-up">
+        <h3 class="text-3xl font-bold text-black mb-8 text-center">工夫した点・課題解決</h3>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8 mb-16">
+        <div data-animation="fade-in-left delay-200" class="bg-white rounded-lg p-8 shadow-sm">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-cut text-white text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-black">データのチャンク化処理の最適化</h4>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <h5 class="font-semibold text-black mb-2">課題</h5>
+              <p class="text-gray-700 text-sm">
+                長い記事をLLMの入力制限内に分割する際、文脈の連続性を保つことが困難
+              </p>
+            </div>
+            <div>
+              <h5 class="font-semibold text-black mb-2">解決策</h5>
+              <p class="text-gray-700 text-sm">
+                単純な文字数分割から段落単位での分割へ変更し、文章の意味的な区切りを識別する仕組みを実装
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div data-animation="fade-in-left delay-400" class="bg-white rounded-lg p-8 shadow-sm">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-link text-white text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-black">分割生成データの結合処理の改善</h4>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <h5 class="font-semibold text-black mb-2">課題</h5>
+              <p class="text-gray-700 text-sm">
+                各チャンクで生成されたコンテンツのトーンや文体が微妙に異なり、つなぎ合わせた際に不自然な境界が発生
+              </p>
+            </div>
+            <div>
+              <h5 class="font-semibold text-black mb-2">解決策</h5>
+              <p class="text-gray-700 text-sm">
+                チャンク間の整合性検証処理と境界部分の自然な接続ロジックを開発、全体の文脈を維持するコンテキスト管理機能を追加
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div data-animation="fade-in-left delay-600" class="bg-white rounded-lg p-8 shadow-sm">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-shield-alt text-white text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-black">LLMのエラー対応とレスポンス安定化</h4>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <h5 class="font-semibold text-black mb-2">課題</h5>
+              <p class="text-gray-700 text-sm">
+                LLM APIのレスポンスが不安定で、特に生成が途中で切れる問題が頻発
+              </p>
+            </div>
+            <div>
+              <h5 class="font-semibold text-black mb-2">解決策</h5>
+              <p class="text-gray-700 text-sm">
+                リトライロジックを実装し、APIレスポンスの検証機能を追加、不完全なデータが返された場合の自動再生成システムを構築
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Learning Outcomes -->
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div data-animation="fade-in-left">
+          <h3 class="text-2xl font-bold text-black mb-6">🎓 技術的な学び</h3>
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h4 class="font-semibold text-black mb-2">AI技術の実用化における発見</h4>
+              <ul class="text-gray-700 text-sm space-y-1">
+                <li>• AI技術の進展による自動化の可能性</li>
+                <li>• プログラムによる動画編集の実現</li>
+                <li>• AIによる低コストスライド生成</li>
+              </ul>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h4 class="font-semibold text-black mb-2">データ処理の複雑性への対応</h4>
+              <ul class="text-gray-700 text-sm space-y-1">
+                <li>• チャンク化処理の課題と解決策</li>
+                <li>• 意味的区切りの識別技術</li>
+                <li>• データ結合時の品質管理</li>
+              </ul>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h4 class="font-semibold text-black mb-2">外部API統合での堅牢性設計</h4>
+              <ul class="text-gray-700 text-sm space-y-1">
+                <li>• LLM APIの不安定性対応</li>
+                <li>• 音声・映像同期の精度管理</li>
+                <li>• Docker統合によるインフラ管理</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div data-animation="fade-in-right">
+          <h3 class="text-2xl font-bold text-black mb-6">🚀 非技術的な学び</h3>
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h4 class="font-semibold text-black mb-2">開発哲学・アプローチの確立</h4>
+              <ul class="text-gray-700 text-sm space-y-1">
+                <li>• MVPファースト思考の重要性</li>
+                <li>• 最低限の品質基準の設定</li>
+                <li>• 実用性重視のマインドセット</li>
+              </ul>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h4 class="font-semibold text-black mb-2">AI技術に対する洞察</h4>
+              <ul class="text-gray-700 text-sm space-y-1">
+                <li>• AI協働の重要性</li>
+                <li>• ルールベースとAIのバランス</li>
+                <li>• 人間とAIの役割分担</li>
+              </ul>
+            </div>
+            
+            <!-- Project Stats -->
+            <div class="bg-black text-white rounded-lg p-6">
+              <h4 class="font-bold mb-4 text-center">プロジェクト成果</h4>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="text-center">
+                  <div class="text-2xl font-bold mb-1">13日</div>
+                  <div class="text-gray-300 text-xs">開発期間</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold mb-1">100%</div>
+                  <div class="text-gray-300 text-xs">自動化達成</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold mb-1">6つ</div>
+                  <div class="text-gray-300 text-xs">主要技術</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-2xl font-bold mb-1">MVP</div>
+                  <div class="text-gray-300 text-xs">アプローチ</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other Projects Teaser -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-animation="fade-in-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">その他の実績</h2>
+        <p class="text-gray-600 text-lg">職歴での主要プロジェクト</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div data-animation="fade-in-up delay-200" class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300">
+          <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-home text-white text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-black mb-2">賃貸検索・管理サービス</h3>
+          <p class="text-gray-600 text-sm mb-4">BtoC・BtoBの賃貸サービス開発</p>
+          <div class="text-xs text-gray-500">現在参画中</div>
+        </div>
+        
+        <div data-animation="fade-in-up delay-400" class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300">
+          <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-user-md text-white text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-black mb-2">医療機関向け勤務管理システム</h3>
+          <p class="text-gray-600 text-sm mb-4">働き方改革新制度対応</p>
+          <div class="text-xs text-gray-500">保守・機能開発</div>
+        </div>
+        
+        <div data-animation="fade-in-up delay-600" class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300">
+          <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-university text-white text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-black mb-2">県向けWeb給与明細システム</h3>
+          <p class="text-gray-600 text-sm mb-4">3万人同時利用可能システム</p>
+          <div class="text-xs text-gray-500">新規開発</div>
+        </div>
+        
+        <div data-animation="fade-in-up delay-800" class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300">
+          <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-server text-white text-2xl"></i>
+          </div>
+          <h3 class="font-bold text-black mb-2">官公庁向け基幹統計サーバー</h3>
+          <p class="text-gray-600 text-sm mb-4">統計情報集約・分析システム</p>
+          <div class="text-xs text-gray-500">サーバー構築</div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12" data-animation="fade-in-up delay-1000">
+        <a href="/experience" class="inline-block px-8 py-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-all transform hover:scale-105">
+          詳しい職歴を見る
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CTA 
+    title="次のプロジェクトを始めませんか？"
+    description="これまでの経験と技術を活かして、あなたのアイデアを形にします"
+    primaryButtonText="お問い合わせ"
+    primaryButtonLink="/contact"
+    secondaryButtonText="スキルを見る"
+    secondaryButtonLink="/skills"
+  />
+</Layout>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  [data-animation="fade-in-up"] {
+    /* アニメーションはJavaScriptでトリガー */
+  }
+
+  [data-animation="fade-in-left"] {
+    /* アニメーションはJavaScriptでトリガー */
+  }
+
+  [data-animation="fade-in-right"] {
+    /* アニメーションはJavaScriptでトリガー */
+  }
+
+  [data-animation*="delay-200"] {
+    /* アニメーションはJavaScriptでトリガー */
+  }
+
+  [data-animation*="delay-400"] {
+    /* アニメーションはJavaScriptでトリガー */
+  }
+
+  [data-animation*="delay-600"] {
+    /* アニメーションはJavaScriptでトリガー */
+  }
+
+  [data-animation*="delay-800"] {
+    /* アニメーションはJavaScriptでトリガー */
+  }
+
+  [data-animation*="delay-1000"] {
+    /* アニメーションはJavaScriptでトリガー */
+  }
+
+  /* 初期状態では非表示 */
+  [data-animation] {
+    opacity: 0;
+  }
+
+  /* アニメーション実行時のクラス */
+  [data-animation].animate {
+    opacity: 1;
+  }
+
+  [data-animation="fade-in-up"].animate {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  [data-animation="fade-in-left"].animate {
+    animation: fadeInLeft 0.6s ease-out forwards;
+  }
+
+  [data-animation="fade-in-right"].animate {
+    animation: fadeInRight 0.6s ease-out forwards;
+  }
+
+  [data-animation*="delay-200"].animate {
+    animation-delay: 0.2s;
+  }
+
+  [data-animation*="delay-400"].animate {
+    animation-delay: 0.4s;
+  }
+
+  [data-animation*="delay-600"].animate {
+    animation-delay: 0.6s;
+  }
+
+  [data-animation*="delay-800"].animate {
+    animation-delay: 0.8s;
+  }
+
+  [data-animation*="delay-1000"].animate {
+    animation-delay: 1s;
+  }
+</style>
+
+<script>
+  // Intersection Observer API を使用してスクロールアニメーションを実装
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('[data-animation]');
+    
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target as HTMLElement;
+          const animationType = element.getAttribute('data-animation');
+          
+          if (animationType) {
+            // アニメーションクラスを追加
+            element.classList.add('animate');
+            
+            // 遅延がある場合の処理
+            if (animationType.includes('delay-')) {
+              const delayMatch = animationType.match(/delay-(\d+)/);
+              if (delayMatch) {
+                const delay = parseInt(delayMatch[1]);
+                setTimeout(() => {
+                  element.style.opacity = '1';
+                  element.style.transform = 'translateX(0) translateY(0)';
+                }, delay);
+              }
+            } else {
+              // 遅延がない場合は即座にアニメーション開始
+              element.style.opacity = '1';
+              element.style.transform = 'translateX(0) translateY(0)';
+            }
+          }
+          
+          // 一度アニメーションが実行されたら監視を停止
+          observer.unobserve(element);
+        }
+      });
+    }, observerOptions);
+
+    // 各アニメーション要素を監視対象に追加
+    animatedElements.forEach(element => {
+      // 初期状態を設定
+      const htmlElement = element as HTMLElement;
+      htmlElement.style.opacity = '0';
+      htmlElement.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      
+      const animationType = element.getAttribute('data-animation');
+      if (animationType) {
+        // アニメーションタイプに応じた初期位置を設定
+        if (animationType.includes('fade-in-left')) {
+          htmlElement.style.transform = 'translateX(-50px)';
+        } else if (animationType.includes('fade-in-right')) {
+          htmlElement.style.transform = 'translateX(50px)';
+        } else if (animationType.includes('fade-in-up')) {
+          htmlElement.style.transform = 'translateY(30px)';
+        } else if (animationType.includes('slide-in-right')) {
+          htmlElement.style.transform = 'translateX(100px)';
+        }
+      }
+      
+      observer.observe(element);
+    });
+  });
+</script>

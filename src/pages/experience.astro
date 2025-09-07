@@ -1,0 +1,914 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout 
+  title="職歴・実績 - フリーランスエンジニアのポートフォリオ | Seiya Iwabuchi's Portfolio"
+  description="岩手県SIer企業での2年間の実務経験とフリーランスとしての活動実績。医療機関向けシステム、県向けWebシステム、官公庁向けサーバー構築等の詳細な職歴をご紹介。"
+>
+
+<!-- Hero Section -->
+<section class="pt-12 pb-8 bg-gradient-to-b from-gray-50 to-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-animation="fade-in-up">
+      <h1 class="text-4xl md:text-5xl font-bold text-black mb-6">Experience</h1>
+      <p class="text-xl text-gray-600">職歴・実績</p>
+    </div>
+  </div>
+</section>
+
+<!-- Career Overview -->
+<section class="pb-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-animation="fade-in-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">職歴</h2>
+      <p class="text-gray-600 text-lg">Career History</p>
+    </div>
+    
+    <!-- Timeline Container -->
+    <div class="max-w-5xl mx-auto relative">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="grid grid-cols-12 h-full">
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+          <div class="border-r border-gray-300"></div>
+        </div>
+      </div>
+
+      <!-- Timeline Progress Bar -->
+      <div class="absolute left-12 top-0 w-1 h-full bg-gradient-to-b from-blue-200 via-purple-200 to-gray-200 rounded-full">
+        <div class="timeline-progress w-full bg-gradient-to-b from-blue-500 via-purple-500 to-gray-500 rounded-full shadow-lg" style="height: 0%; transition: height 2s ease-out;"></div>
+      </div>
+      
+      <!-- Experience Stats -->
+      <div class="mb-12 grid grid-cols-1 md:grid-cols-4 gap-6" data-animation="fade-in-up">
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 text-center transform hover:scale-105 transition-all duration-300">
+          <div class="text-3xl font-bold text-gray-600 mb-2">3+</div>
+          <div class="text-sm text-gray-700">総経験年数</div>
+        </div>
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 text-center transform hover:scale-105 transition-all duration-300">
+          <div class="text-3xl font-bold text-gray-600 mb-2">5</div>
+          <div class="text-sm text-gray-700">プロジェクト数</div>
+        </div>
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 text-center transform hover:scale-105 transition-all duration-300">
+          <div class="text-3xl font-bold text-gray-600 mb-2">10+</div>
+          <div class="text-sm text-gray-700">習得技術</div>
+        </div>
+        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 text-center transform hover:scale-105 transition-all duration-300">
+          <div class="text-3xl font-bold text-gray-600 mb-2">～50</div>
+          <div class="text-sm text-gray-700">最大チーム規模</div>
+        </div>
+      </div>
+      
+      <!-- Current: Freelance -->
+      <div data-animation="fade-in-up delay-200" class="relative flex flex-col md:flex-row items-start mb-20 group">
+        <!-- スマホ用：日付を上部に強調表示 -->
+        <div class="w-full md:hidden mb-6">
+          <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-6 shadow-xl">
+            <div class="text-center">
+              <div class="text-3xl font-black mb-2">2024年5月</div>
+              <div class="text-lg font-bold opacity-90">〜 現在</div>
+              <div class="mt-3 inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full">
+                <div class="w-3 h-3 bg-green-300 rounded-full mr-2 animate-pulse"></div>
+                <span class="font-semibold">継続中</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- デスクトップ用：左側に日付表示（強調） -->
+        <div class="hidden md:block flex-shrink-0 w-56 text-right pr-8">
+          <div class="inline-block bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-300 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div class="text-2xl font-black text-blue-700 mb-2">2024年5月</div>
+            <div class="text-lg font-bold text-blue-600 mb-3">〜 現在</div>
+            <div class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 text-sm rounded-full font-semibold">
+              <div class="w-3 h-3 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+              継続中
+            </div>
+            <!-- Progress Ring -->
+            <div class="mt-4">
+              <div class="relative w-20 h-20 mx-auto">
+                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 64 64">
+                  <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4" fill="transparent" class="text-blue-200"/>
+                  <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4" fill="transparent" stroke-dasharray="176" stroke-dashoffset="88" class="text-blue-500 progress-circle"/>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center text-sm font-bold text-blue-700">50%+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Enhanced Timeline Marker -->
+        <div class="hidden md:block flex-shrink-0 relative z-20">
+          <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full shadow-2xl border-4 border-white flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+            <i class="fas fa-laptop-code text-white text-xl"></i>
+          </div>
+          <!-- Multiple Pulse Animations -->
+          <div class="absolute inset-0 w-14 h-14 bg-blue-500 rounded-full animate-ping opacity-20"></div>
+          <div class="absolute inset-0 w-14 h-14 bg-blue-400 rounded-full animate-ping opacity-10" style="animation-delay: 0.5s;"></div>
+          <!-- Floating Particles -->
+          <div class="absolute -top-2 -right-2 w-4 h-4 bg-blue-300 rounded-full animate-bounce opacity-60"></div>
+          <div class="absolute -bottom-2 -left-2 w-3 h-3 bg-blue-400 rounded-full animate-bounce opacity-60" style="animation-delay: 0.3s;"></div>
+        </div>
+        
+        <!-- Enhanced Content Card -->
+        <div class="flex-1 md:ml-10">
+          <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border-2 border-gray-100 hover:border-blue-200 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-blue-50/30 group-hover:to-white">
+            <!-- Card Header -->
+            <div class="flex flex-col md:flex-row md:items-start justify-between mb-8">
+              <div class="flex-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-4 h-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full mr-4 shadow-lg"></div>
+                  <h3 class="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">フリーランス</h3>
+                  <div class="ml-4 px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full font-semibold">現在</div>
+                </div>
+                <p class="text-gray-600 text-xl">システムエンジニア</p>
+                <!-- Experience Level -->
+                <div class="mt-4">
+                  <div class="flex items-center mb-2">
+                    <span class="text-sm text-gray-500">経験レベル</span>
+                    <div class="ml-3 flex">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star-half-alt text-yellow-400"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right ml-6">
+                <div class="text-sm text-gray-500 uppercase tracking-wide mb-1">期間</div>
+                <div class="text-2xl font-bold text-gray-600 mb-2">1年4ヶ月+</div>
+                <div class="px-4 py-2 bg-gradient-to-r from-gray-500 to-gray-600 text-white rounded-full text-sm font-semibold shadow-lg">
+                  進行中
+                </div>
+              </div>
+            </div>
+            
+            <!-- Description with Enhanced Styling -->
+            <div class="mb-8 p-6 bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl border-l-4 border-gray-400">
+              <p class="text-gray-700 leading-relaxed text-lg">
+                フルスタックWebアプリ・モバイルアプリ開発を中心に活動。
+                BtoC賃貸検索サービス、BtoB賃貸管理サービス開発に参画し、
+                要件定義から運用まで一貫した開発業務を担当。
+              </p>
+            </div>
+            
+            <!-- Enhanced Skills Grid -->
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-gray-500 to-gray-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <i class="fas fa-code text-white"></i>
+                  </div>
+                  <h4 class="font-bold text-gray-900 ml-3">主要技術</h4>
+                </div>
+                <div class="text-sm text-gray-700 space-y-2">
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-gray-500 rounded-full mr-2"></div>
+                    PHP/Laravel
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-gray-600 rounded-full mr-2"></div>
+                    TypeScript/Nuxt.js
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-gray-700 rounded-full mr-2"></div>
+                    Flutter
+                  </div>
+                </div>
+                <!-- Skill Progress -->
+                <div class="mt-4 space-y-2">
+                  <div class="flex justify-between text-xs text-gray-600">
+                    <span>スキル習熟度</span>
+                    <span>85%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-gradient-to-r from-gray-500 to-gray-600 h-2 rounded-full skill-progress" style="width: 0%; transition: width 2s ease-out;"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-gray-500 to-gray-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <i class="fas fa-project-diagram text-white"></i>
+                  </div>
+                  <h4 class="font-bold text-gray-900 ml-3">プロジェクト規模</h4>
+                </div>
+                <div class="text-sm text-gray-700">賃貸検索・管理サービス開発</div>
+                <div class="mt-4 flex items-center">
+                  <div class="flex-1 bg-gray-200 rounded-full h-2 mr-3">
+                    <div class="bg-gradient-to-r from-gray-500 to-gray-600 h-2 rounded-full" style="width: 90%;"></div>
+                  </div>
+                  <span class="text-xs text-gray-600">Large</span>
+                </div>
+              </div>
+              
+              <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-gray-500 to-gray-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <i class="fas fa-tasks text-white"></i>
+                  </div>
+                  <h4 class="font-bold text-gray-900 ml-3">担当範囲</h4>
+                </div>
+                <div class="text-sm text-gray-700">フルスタック開発</div>
+                <div class="mt-4">
+                  <div class="flex justify-center">
+                    <div class="text-2xl font-bold text-gray-600">100%</div>
+                  </div>
+                  <div class="text-xs text-center text-gray-600 mt-1">完全対応</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Achievement Badges -->
+            <div class="mt-8 flex flex-wrap gap-3">
+              <div class="px-4 py-2 bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full text-sm font-semibold shadow-lg flex items-center">
+                <i class="fas fa-trophy mr-2"></i>
+                現役エンジニア
+              </div>
+              <div class="px-4 py-2 bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full text-sm font-semibold shadow-lg flex items-center">
+                <i class="fas fa-rocket mr-2"></i>
+                フルスタック
+              </div>
+              <div class="px-4 py-2 bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full text-sm font-semibold shadow-lg flex items-center">
+                <i class="fas fa-chart-line mr-2"></i>
+                成長中
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Previous: SIer -->
+      <div data-animation="fade-in-up delay-400" class="relative flex flex-col md:flex-row items-start mb-20 group">
+        <!-- スマホ用：日付を上部に強調表示 -->
+        <div class="w-full md:hidden mb-6">
+          <div class="bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-2xl p-6 shadow-xl">
+            <div class="text-center">
+              <div class="text-3xl font-black mb-2">2022年4月</div>
+              <div class="text-lg font-bold opacity-90">〜 2024年3月</div>
+              <div class="mt-3 inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full">
+                <div class="w-3 h-3 bg-green-300 rounded-full mr-2"></div>
+                <span class="font-semibold">完了</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- デスクトップ用：左側に日付表示（強調） -->
+        <div class="hidden md:block flex-shrink-0 w-56 text-right pr-8">
+          <div class="inline-block bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-300 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+            <div class="text-2xl font-black text-purple-700 mb-2">2022年4月</div>
+            <div class="text-lg font-bold text-purple-600 mb-3">〜 2024年3月</div>
+            <div class="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-700 text-sm rounded-full font-semibold">
+              <div class="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
+              完了
+            </div>
+            <!-- Completion Ring -->
+            <div class="mt-4">
+              <div class="relative w-20 h-20 mx-auto">
+                <svg class="w-20 h-20 transform -rotate-90" viewBox="0 0 64 64">
+                  <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4" fill="transparent" class="text-purple-200"/>
+                  <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="4" fill="transparent" stroke-dasharray="176" stroke-dashoffset="0" class="text-purple-500"/>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center text-sm font-bold text-purple-700">100%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Enhanced Timeline Marker -->
+        <div class="hidden md:block flex-shrink-0 relative z-20">
+          <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full shadow-2xl border-4 border-white flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+            <i class="fas fa-building text-white text-xl"></i>
+          </div>
+          <!-- Completed indicator -->
+          <div class="absolute -top-1 -right-1 w-5 h-5 bg-purple-500 rounded-full border-2 border-white flex items-center justify-center">
+            <i class="fas fa-check text-white text-sm"></i>
+          </div>
+        </div>
+        
+        <!-- Enhanced Content Card -->
+        <div class="flex-1 md:ml-10">
+          <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border-2 border-gray-100 hover:border-purple-200 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 group-hover:bg-gradient-to-br group-hover:from-purple-50/30 group-hover:to-white">
+            <!-- Card Header -->
+            <div class="flex flex-col md:flex-row md:items-start justify-between mb-8">
+              <div class="flex-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-4 h-4 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full mr-4 shadow-lg"></div>
+                  <h3 class="text-2xl md:text-3xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">岩手県SIer企業</h3>
+                  <div class="ml-4 px-3 py-1 bg-purple-100 text-purple-700 text-sm rounded-full font-semibold">退職</div>
+                </div>
+                <p class="text-gray-600 text-xl">システムエンジニア（正社員）</p>
+                <!-- Experience Level -->
+                <div class="mt-4">
+                  <div class="flex items-center mb-2">
+                    <span class="text-sm text-gray-500">経験レベル</span>
+                    <div class="ml-3 flex">
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="fas fa-star text-yellow-400"></i>
+                      <i class="far fa-star text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right ml-6">
+                <div class="text-sm text-gray-500 uppercase tracking-wide mb-1">期間</div>
+                <div class="text-2xl font-bold text-gray-600 mb-2">2年間</div>
+                <div class="px-4 py-2 bg-gradient-to-r from-gray-500 to-gray-600 text-white rounded-full text-sm font-semibold shadow-lg">
+                  基礎固め
+                </div>
+              </div>
+            </div>
+            
+            <!-- Description with Enhanced Styling -->
+            <div class="mb-8 p-6 bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl border-l-4 border-gray-400">
+              <p class="text-gray-700 leading-relaxed text-lg">
+                4つのプロジェクトに参画し、医療機関向けシステム、県向けWebシステム、
+                官公庁向けサーバー構築等を担当。Java、Kotlin、SpringBoot、Vue.jsを中心とした
+                エンタープライズシステム開発に従事。
+              </p>
+            </div>
+            
+            <!-- Enhanced Skills Grid -->
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-gray-500 to-gray-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <i class="fas fa-code text-white"></i>
+                  </div>
+                  <h4 class="font-bold text-gray-900 ml-3">主要技術</h4>
+                </div>
+                <div class="text-sm text-gray-700 space-y-2">
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-gray-500 rounded-full mr-2"></div>
+                    Java, Kotlin
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-gray-600 rounded-full mr-2"></div>
+                    SpringBoot
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-gray-700 rounded-full mr-2"></div>
+                    Vue.js, PostgreSQL
+                  </div>
+                </div>
+                <!-- Skill Progress -->
+                <div class="mt-4 space-y-2">
+                  <div class="flex justify-between text-xs text-gray-600">
+                    <span>スキル習熟度</span>
+                    <span>75%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div class="bg-gradient-to-r from-gray-500 to-gray-600 h-2 rounded-full" style="width: 75%;"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-gray-500 to-gray-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <i class="fas fa-layer-group text-white"></i>
+                  </div>
+                  <h4 class="font-bold text-gray-900 ml-3">プロジェクト数</h4>
+                </div>
+                <div class="text-2xl font-bold text-gray-600 mb-2">4</div>
+                <div class="text-sm text-gray-700">主要プロジェクト</div>
+                <div class="mt-4 grid grid-cols-4 gap-1">
+                  <div class="w-full h-2 bg-gray-500 rounded"></div>
+                  <div class="w-full h-2 bg-gray-500 rounded"></div>
+                  <div class="w-full h-2 bg-gray-500 rounded"></div>
+                  <div class="w-full h-2 bg-gray-500 rounded"></div>
+                </div>
+              </div>
+              
+              <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-gradient-to-br from-gray-500 to-gray-600 rounded-xl flex items-center justify-center shadow-lg">
+                    <i class="fas fa-users text-white"></i>
+                  </div>
+                  <h4 class="font-bold text-gray-900 ml-3">チーム規模</h4>
+                </div>
+                <div class="text-sm text-gray-700 mb-3">1〜50名（プロジェクトにより変動）</div>
+                <div class="flex items-center justify-between text-xs text-gray-600">
+                  <span>小</span>
+                  <span>中</span>
+                  <span>大</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                  <div class="bg-gradient-to-r from-gray-500 to-gray-600 h-2 rounded-full" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Achievement Badges -->
+            <div class="mt-8 flex flex-wrap gap-3">
+              <div class="px-4 py-2 bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full text-sm font-semibold shadow-lg flex items-center">
+                <i class="fas fa-graduation-cap mr-2"></i>
+                新卒エンジニア
+              </div>
+              <div class="px-4 py-2 bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full text-sm font-semibold shadow-lg flex items-center">
+                <i class="fas fa-code-branch mr-2"></i>
+                エンタープライズ経験
+              </div>
+              <div class="px-4 py-2 bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full text-sm font-semibold shadow-lg flex items-center">
+                <i class="fas fa-check-circle mr-2"></i>
+                完了
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Timeline Start Marker -->
+      <div class="relative flex justify-center mt-16" data-animation="fade-in-up delay-600">
+        <div class="flex items-center space-x-4">
+          <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-green-700 rounded-full shadow-lg border-4 border-white flex items-center justify-center">
+            <i class="fas fa-graduation-cap text-white text-sm"></i>
+          </div>
+          <div class="px-6 py-3 bg-gradient-to-r from-green-100 to-green-200 text-green-700 rounded-full font-semibold shadow-lg">
+            エンジニアキャリア開始
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project Details -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-animation="fade-in-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">プロジェクト実績</h2>
+      <p class="text-gray-600 text-lg">Project Experience</p>
+    </div>
+    
+    <!-- Current Project -->
+    <div data-animation="fade-in-up delay-200" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+      <div class="flex items-start justify-between mb-6">
+        <div>
+          <div class="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full mb-3">
+            <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+            現在参画中
+          </div>
+          <h3 class="text-2xl font-bold text-black mb-2">賃貸検索・管理サービス開発</h3>
+          <p class="text-gray-600">2024年5月〜現在（継続中）</p>
+        </div>
+        <div class="text-right">
+          <div class="text-sm text-gray-600">フリーランス</div>
+        </div>
+      </div>
+      
+      <div class="mb-6">
+        <h4 class="font-semibold text-black mb-3">概要</h4>
+        <p class="text-gray-700 leading-relaxed">
+          BtoC賃貸検索サービスおよびBtoB賃貸管理サービスの開発業務。
+          フルスタックエンジニアとして要件定義から実装、テスト、リリースまで一貫して担当。
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-6">
+        <div>
+          <h4 class="font-semibold text-black mb-3">使用技術</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-black text-white text-sm rounded-full">PHP/Laravel</span>
+            <span class="px-3 py-1 bg-black text-white text-sm rounded-full">TypeScript/Nuxt.js</span>
+            <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Flutter</span>
+            <span class="px-3 py-1 bg-black text-white text-sm rounded-full">Git Flow</span>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold text-black mb-3">担当工程</h4>
+          <div class="space-y-2">
+            <div class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-700">要件定義・認識合わせ</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-700">画面設計・詳細設計</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-700">実装・コードレビュー対応</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-2"></i>
+              <span class="text-gray-700">テスト・リリース</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h4 class="font-semibold text-black mb-3">工夫した点</h4>
+        <ul class="text-gray-700 space-y-2">
+          <li>• 既存コードを踏襲した実装で、保守性の高いコードを意識</li>
+          <li>• テスタブルで責任分離されたコード構造の理解を深化</li>
+          <li>• ホワイトボックステスト・ロジックテストを意識した設計・実施</li>
+          <li>• 手順書作成とダブルチェック体制でのリリース実施</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Past Projects -->
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- Medical System -->
+      <div data-animation="fade-in-left" class="bg-white rounded-lg shadow-lg p-8">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <h3 class="text-xl font-bold text-black mb-2">医療機関向け勤務管理システム保守</h3>
+            <p class="text-gray-600">2023年12月〜2024年3月</p>
+          </div>
+          <div class="text-sm text-gray-600">正社員</div>
+        </div>
+        
+        <p class="text-gray-700 leading-relaxed mb-4">
+          医師の働き方改革新制度対応のための機能開発・改修を担当。
+          新制度対応機能の実装完了、単体テスト設計・実施を行いました。
+        </p>
+        
+        <div class="mb-4">
+          <h4 class="font-semibold text-black mb-2">技術スタック</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">Kotlin</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">TypeScript</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">Vue.js</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">SpringBoot</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">PostgreSQL</span>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-black mb-2">チーム規模</h4>
+          <p class="text-gray-700 text-sm">6〜10名</p>
+        </div>
+      </div>
+      
+      <!-- Government Web System -->
+      <div data-animation="fade-in-right" class="bg-white rounded-lg shadow-lg p-8">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <h3 class="text-xl font-bold text-black mb-2">県向けWeb給与明細システム新規開発</h3>
+            <p class="text-gray-600">2023年3月〜11月</p>
+          </div>
+          <div class="text-sm text-gray-600">正社員</div>
+        </div>
+        
+        <p class="text-gray-700 leading-relaxed mb-4">
+          約3万人が同時利用可能な給与明細Web閲覧システムの新規開発。
+          パッケージシステムの完成・リリースを達成しました。
+        </p>
+        
+        <div class="mb-4">
+          <h4 class="font-semibold text-black mb-2">技術スタック</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">Java 17</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">SpringBoot</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">Thymeleaf</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">PostgreSQL</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">Docker</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">さくらクラウド</span>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-black mb-2">チーム規模</h4>
+          <p class="text-gray-700 text-sm">1〜5名</p>
+        </div>
+      </div>
+      
+      <!-- Government Server -->
+      <div data-animation="fade-in-left delay-200" class="bg-white rounded-lg shadow-lg p-8">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <h3 class="text-xl font-bold text-black mb-2">官公庁向け基幹統計サーバー構築</h3>
+            <p class="text-gray-600">2022年11月〜2023年2月</p>
+          </div>
+          <div class="text-sm text-gray-600">正社員</div>
+        </div>
+        
+        <p class="text-gray-700 leading-relaxed mb-4">
+          統計情報の集約・分析用基幹統計サーバーの構築を担当。
+          サーバー構築完了、現地キッティング実施を行いました。
+        </p>
+        
+        <div class="mb-4">
+          <h4 class="font-semibold text-black mb-2">技術スタック</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">VBA</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">MS Access</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">PostgreSQL</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">Windows Server</span>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-black mb-2">チーム規模</h4>
+          <p class="text-gray-700 text-sm">1〜5名</p>
+        </div>
+      </div>
+      
+      <!-- Payroll System -->
+      <div data-animation="fade-in-right delay-200" class="bg-white rounded-lg shadow-lg p-8">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <h3 class="text-xl font-bold text-black mb-2">県向け給与計算システム開発</h3>
+            <p class="text-gray-600">2022年7月〜11月</p>
+          </div>
+          <div class="text-sm text-gray-600">正社員</div>
+        </div>
+        
+        <p class="text-gray-700 leading-relaxed mb-4">
+          給与計算システムのパッケージカスタマイズを担当（新卒最初のプロジェクト）。
+          画面・帳票改修完了、文言修正・桁数拡張等の対応を行いました。
+        </p>
+        
+        <div class="mb-4">
+          <h4 class="font-semibold text-black mb-2">技術スタック</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">Java 11</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">JavaFX</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">PostgreSQL</span>
+            <span class="px-2 py-1 bg-gray-200 text-gray-700 text-xs rounded">自社FW</span>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-black mb-2">チーム規模</h4>
+          <p class="text-gray-700 text-sm">11〜50名</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Development -->
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-animation="fade-in-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">経験を通じて身につけたスキル</h2>
+      <p class="text-gray-600 text-lg">Skills Acquired Through Experience</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div data-animation="fade-in-up delay-200" class="bg-gray-50 rounded-lg p-8 text-center">
+        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-tasks text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-black mb-4">要件定義・設計</h3>
+        <p class="text-gray-700 text-sm">
+          複雑な案件での要件定義書作成、関係者との認識合わせ、
+          図表を使用したわかりやすい資料作成
+        </p>
+      </div>
+      
+      <div data-animation="fade-in-up delay-400" class="bg-gray-50 rounded-lg p-8 text-center">
+        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-code text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-black mb-4">実装・コーディング</h3>
+        <p class="text-gray-700 text-sm">
+          既存コードを踏襲した実装、テスタブルで責任分離されたコード構造、
+          コードレビューでの指摘対応
+        </p>
+      </div>
+      
+      <div data-animation="fade-in-up delay-600" class="bg-gray-50 rounded-lg p-8 text-center">
+        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-vial text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-black mb-4">テスト・品質管理</h3>
+        <p class="text-gray-700 text-sm">
+          ホワイトボックステスト・ロジックテストの設計・実施、
+          テスト設計段階でのバグ早期発見
+        </p>
+      </div>
+      
+      <div data-animation="fade-in-up delay-800" class="bg-gray-50 rounded-lg p-8 text-center">
+        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-rocket text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-black mb-4">リリース・運用</h3>
+        <p class="text-gray-700 text-sm">
+          手順書作成とダブルチェック体制でのリリース実施、
+          本番環境依存問題への対応経験
+        </p>
+      </div>
+      
+      <div data-animation="fade-in-up delay-1000" class="bg-gray-50 rounded-lg p-8 text-center">
+        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-users text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-black mb-4">チーム開発</h3>
+        <p class="text-gray-700 text-sm">
+          1名〜50名規模のチームでの開発経験、
+          コミュニケーション、進捗報告、エビデンス作成
+        </p>
+      </div>
+      
+      <div data-animation="fade-in-up delay-1200" class="bg-gray-50 rounded-lg p-8 text-center">
+        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-search text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-black mb-4">障害対応・調査</h3>
+        <p class="text-gray-700 text-sm">
+          リソース不足による障害の迅速な原因調査・対応、
+          スケールアップ対応などの運用経験
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technical Blog -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-animation="fade-in-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">技術発信</h2>
+      <p class="text-gray-600 text-lg">Technical Writing</p>
+    </div>
+    
+    <div class="max-w-2xl mx-auto text-center">
+      <div data-animation="fade-in-up delay-200" class="bg-white rounded-lg shadow-lg p-8">
+        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-blog text-white text-2xl"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-black mb-4">技術ブログ</h3>
+        <p class="text-gray-700 leading-relaxed mb-6">
+          開発過程で得た知見や技術的な発見を記事として発信しています。
+          実際のプロジェクトで直面した課題とその解決策を中心に、
+          他の開発者にとって有益な情報を共有しています。
+        </p>
+        <a href="https://zenn.dev/seichan" target="_blank" class="inline-flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+          <i class="fas fa-external-link-alt mr-2"></i>
+          Zenn で記事を読む
+          <span class="ml-2 text-xs bg-gray-600 px-2 py-1 rounded">（外部リンク）</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<CTA 
+  title="この経験を活かしてお手伝いします"
+  description="2年間の実務経験とフリーランスでの実績を活かして<br>あなたのプロジェクトの成功をサポートします"
+  primaryButtonText="お問い合わせ"
+  primaryButtonLink="/contact"
+  secondaryButtonText="スキルを見る"
+  secondaryButtonLink="/skills"
+  backgroundColor="black"
+/>
+
+<style>
+  /* アニメーション用のCSSキーフレーム */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* アニメーションクラス */
+  [data-animation*="fade-in-up"].animate {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  [data-animation*="fade-in-left"].animate {
+    animation: fadeInLeft 0.6s ease-out forwards;
+  }
+
+  [data-animation*="fade-in-right"].animate {
+    animation: fadeInRight 0.6s ease-out forwards;
+  }
+
+  [data-animation*="fade-in"].animate:not([data-animation*="fade-in-up"]):not([data-animation*="fade-in-left"]):not([data-animation*="fade-in-right"]) {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  /* 初期状態 */
+  [data-animation] {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  // Intersection Observer API を使用してスクロールアニメーションを実装
+  document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('[data-animation]');
+    
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target as HTMLElement;
+          const animationType = element.getAttribute('data-animation');
+          
+          if (animationType) {
+            // アニメーションクラスを追加
+            element.classList.add('animate');
+            
+            // 遅延がある場合の処理
+            if (animationType.includes('delay-')) {
+              const delayMatch = animationType.match(/delay-(\d+)/);
+              if (delayMatch) {
+                const delay = parseInt(delayMatch[1]);
+                setTimeout(() => {
+                  element.style.opacity = '1';
+                  element.style.transform = 'translateX(0) translateY(0)';
+                }, delay);
+              }
+            } else {
+              // 遅延がない場合は即座にアニメーション開始
+              element.style.opacity = '1';
+              element.style.transform = 'translateX(0) translateY(0)';
+            }
+          }
+          
+          // 一度アニメーションが実行されたら監視を停止
+          observer.unobserve(element);
+        }
+      });
+    }, observerOptions);
+
+    // 各アニメーション要素を監視対象に追加
+    animatedElements.forEach(element => {
+      // 初期状態を設定
+      const htmlElement = element as HTMLElement;
+      htmlElement.style.opacity = '0';
+      htmlElement.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      
+      const animationType = element.getAttribute('data-animation');
+      if (animationType) {
+        // アニメーションタイプに応じた初期位置を設定
+        if (animationType.includes('fade-in-left')) {
+          htmlElement.style.transform = 'translateX(-50px)';
+        } else if (animationType.includes('fade-in-right')) {
+          htmlElement.style.transform = 'translateX(50px)';
+        } else if (animationType.includes('fade-in-up')) {
+          htmlElement.style.transform = 'translateY(30px)';
+        }
+      }
+      
+      observer.observe(element);
+    });
+  });
+</script>
+
+</Layout>

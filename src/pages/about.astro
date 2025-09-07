@@ -1,0 +1,370 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+---
+
+<Layout 
+  title="自己紹介"
+  description="2年のシステムエンジニア経験を持つフリーランス開発者の経歴・学歴・専門領域をご紹介。東北電子専門学校卒業、岩手県SIer企業出身。"
+  keywords="フリーランス,システムエンジニア,自己紹介,経歴,学歴,岩手,一関,東北電子専門学校"
+>
+  <!-- Hero Section -->
+  <section class="pt-24 pb-8 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in-up" data-animation="fade-in-up">
+        <h1 class="text-4xl md:text-5xl font-bold text-black mb-6">About</h1>
+        <p class="text-xl text-gray-600">自己紹介</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Section -->
+  <section class="pb-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-in-left" data-animation="fade-in-left">
+          <div class="text-center lg:text-left">
+            <div class="w-64 h-64 mx-auto lg:mx-0 rounded-full bg-gray-200 relative mb-8 float">
+              <img src="/images/profile.jpg" alt="プロフィール写真" class="w-full h-full object-cover rounded-full" loading="eager">
+              <!-- ペット画像 -->
+              <div class="absolute bottom-0 right-0 w-24 h-24 rounded-full bg-white border-2 border-white shadow-lg overflow-hidden">
+                <img src="/images/sakura.jpg" alt="愛犬さくら" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div class="space-y-6">
+              <!-- 名前 -->
+              <div>
+                <h2 class="text-3xl font-bold text-black mb-2">岩渕 誠也</h2>
+                <p class="text-gray-600 text-lg">いわぶち せいや</p>
+              </div>
+              
+              <!-- 職業・居住地 -->
+              <div class="space-y-2">
+                <div class="flex items-center justify-center lg:justify-start space-x-3">
+                  <i class="fas fa-briefcase text-gray-600"></i>
+                  <span class="text-gray-700">フリーランスシステムエンジニア</span>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start space-x-3">
+                  <i class="fas fa-map-marker-alt text-gray-600"></i>
+                  <span class="text-gray-700">岩手県一関市</span>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start space-x-3">
+                  <i class="fas fa-home text-gray-600"></i>
+                  <span class="text-gray-700">実家でリモートワーク中</span>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start space-x-3">
+                  <i class="fas fa-dog text-gray-600"></i>
+                  <span class="text-gray-700">かわいい柴犬との生活</span>
+                </div>
+              </div>
+              
+              <!-- ステータス -->
+              <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div class="flex items-center justify-center lg:justify-start space-x-3">
+                  <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  <span class="text-green-700 font-medium">現在案件参画中</span>
+                </div>
+                <p class="text-green-600 text-sm mt-2 text-center lg:text-left">
+                  賃貸検索・管理サービス開発に従事<br>
+                  新規案件についてはご相談ください
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="fade-in-right space-y-8" data-animation="fade-in-right">
+          <div>
+            <h3 class="text-2xl font-bold text-black mb-4">経歴概要</h3>
+            <p class="text-gray-700 leading-relaxed text-lg">
+              4年のシステムエンジニア経験を持ち、岩手県大手SIerを経て2024年にフリーランスとして独立。
+              これまでに4つのプロジェクトに携わり、医療機関向けシステム、県向けWeb給与明細システム、
+              官公庁向けサーバー構築、賃貸検索・管理システム等、幅広い分野で企業の課題解決に貢献してきました。
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-2 gap-6">
+            <div class="text-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors card-fade">
+              <div class="text-3xl font-bold text-black mb-2">4年</div>
+              <div class="text-gray-600">実務経験</div>
+            </div>
+            <div class="text-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors card-fade">
+              <div class="text-3xl font-bold text-black mb-2">4+</div>
+              <div class="text-gray-600">プロジェクト</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in-up" data-animation="fade-in-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">学歴</h2>
+        <p class="text-gray-600 text-lg">Educational Background</p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="fade-in-up bg-white rounded-lg shadow-sm p-8 hover:shadow-md transition-shadow card-fade" data-animation="fade-in-up delay-200">
+          <div class="flex items-start space-x-6">
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center">
+                <i class="fas fa-graduation-cap text-white text-2xl"></i>
+              </div>
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                <h3 class="text-xl font-bold text-black">東北電子専門学校</h3>
+                <span class="text-gray-500 text-sm md:text-base">2018年4月 〜 2022年3月</span>
+              </div>
+              <div class="text-lg text-gray-700 mb-4">高度ITエンジニア科（4年課程）</div>
+              
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold text-black mb-2">取得資格</h4>
+                  <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-center space-x-2">
+                      <i class="fas fa-certificate text-black"></i>
+                      <span class="text-gray-700">基本情報技術者試験</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                      <i class="fas fa-certificate text-black"></i>
+                      <span class="text-gray-700">応用情報技術者試験</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                      <i class="fas fa-certificate text-black"></i>
+                      <span class="text-gray-700">AWS Certified Cloud Practitioner</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                      <i class="fas fa-certificate text-black"></i>
+                      <span class="text-gray-700">その他多数の資格</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 class="font-semibold text-black mb-2">卒業制作</h4>
+                  <div class="bg-gray-50 rounded-lg p-4">
+                    <h5 class="font-medium text-black mb-2">AIによるパーソナライズされた温度空間を実現する空調家電連携システム</h5>
+                    <p class="text-gray-600 text-sm">
+                      IoTとAI技術を組み合わせ、個人の好みや環境に応じて最適な室温を自動調整するシステムを開発。
+                      複数の家電との連携を実現し、快適な居住空間の創出を目指しました。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in-up" data-animation="fade-in-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">専門領域・強み</h2>
+        <p class="text-gray-600 text-lg">Areas of Expertise</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="fade-in-up text-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all card-fade" data-animation="fade-in-up delay-200">
+          <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-code text-white text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-black mb-2">フルスタック開発</h3>
+          <p class="text-gray-600 text-sm">Web・モバイルアプリ開発</p>
+        </div>
+        
+        <div class="fade-in-up text-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all card-fade" data-animation="fade-in-up delay-400">
+          <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-cogs text-white text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-black mb-2">業務システム開発・保守</h3>
+          <p class="text-gray-600 text-sm">賃貸、医療、官公庁、給与系</p>
+        </div>
+        
+        <div class="fade-in-up text-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all card-fade" data-animation="fade-in-up delay-600">
+          <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-tasks text-white text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-black mb-2">要件定義から運用まで一貫対応</h3>
+          <p class="text-gray-600 text-sm">全工程でのサポート</p>
+        </div>
+        
+        <div class="fade-in-up text-center p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all card-fade" data-animation="fade-in-up delay-800">
+          <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-wrench text-white text-2xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-black mb-2">既存システムの理解・改修・拡張</h3>
+          <p class="text-gray-600 text-sm">レガシーシステム対応</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in-up" data-animation="fade-in-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">開発への想い</h2>
+        <p class="text-gray-600 text-lg">Development Philosophy</p>
+      </div>
+      
+      <div class="fade-in-up bg-white rounded-lg shadow-sm p-8 md:p-12" data-animation="fade-in-up delay-200">
+        <div class="text-center mb-8">
+          <i class="fas fa-lightbulb text-4xl text-black mb-4"></i>
+        </div>
+        
+        <blockquote class="text-xl md:text-2xl text-gray-700 leading-relaxed text-center font-light italic mb-8">
+          「いきなり100%を目指して作るのではなく、まずは動くものを作り、そこから改善していくことを大切にしています。」
+        </blockquote>
+        
+        <div class="space-y-6 text-gray-700 leading-relaxed">
+          <p class="text-center text-lg">
+            早い段階で動くものを提供することで、ユーザーからのフィードバックを迅速に反映し、
+            より良いシステムを共に作り上げていきます。
+          </p>
+          
+          <div class="grid md:grid-cols-3 gap-6 mt-12">
+            <div class="text-center p-6 hover:bg-gray-50 rounded-lg transition-colors">
+              <i class="fas fa-rocket text-2xl text-black mb-4"></i>
+              <h3 class="font-semibold text-black mb-2">迅速な価値提供</h3>
+              <p class="text-sm text-gray-600">早期にMVPを提供し、価値を実感いただけるよう努めます</p>
+            </div>
+            
+            <div class="text-center p-6 hover:bg-gray-50 rounded-lg transition-colors">
+              <i class="fas fa-sync-alt text-2xl text-black mb-4"></i>
+              <h3 class="font-semibold text-black mb-2">継続的改善</h3>
+              <p class="text-sm text-gray-600">フィードバックを基に継続的にシステムを改善します</p>
+            </div>
+            
+            <div class="text-center p-6 hover:bg-gray-50 rounded-lg transition-colors">
+              <i class="fas fa-handshake text-2xl text-black mb-4"></i>
+              <h3 class="font-semibold text-black mb-2">協働での構築</h3>
+              <p class="text-sm text-gray-600">お客様と一緒により良いシステムを作り上げます</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CTA 
+    title="一緒にプロジェクトを進めませんか？"
+    description="あなたのアイデアを形にするお手伝いをさせてください"
+    primaryButtonText="お問い合わせ"
+    primaryButtonLink="/contact"
+    secondaryButtonText="制作実績を見る"
+    secondaryButtonLink="/works"
+  />
+</Layout>
+
+<style>
+  /* 基本的なアニメーション */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .card-fade {
+    transition: all 0.3s ease;
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  /* 遅延アニメーション */
+  .fade-in-up[data-animation*="delay-200"] {
+    transition-delay: 0.2s;
+  }
+
+  .fade-in-up[data-animation*="delay-400"] {
+    transition-delay: 0.4s;
+  }
+
+  .fade-in-up[data-animation*="delay-600"] {
+    transition-delay: 0.6s;
+  }
+
+  .fade-in-up[data-animation*="delay-800"] {
+    transition-delay: 0.8s;
+  }
+
+  /* アニメーション実行クラス */
+  .fade-in-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-left.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .fade-in-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>
+
+<script>
+  // スクロールアニメーション
+  function initScrollAnimations() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // アニメーション対象の要素を監視
+    document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  // DOMが読み込まれたら実行
+  document.addEventListener('DOMContentLoaded', initScrollAnimations);
+</script>
