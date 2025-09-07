@@ -7,7 +7,7 @@
     "dev:prod": "cross-env BASE_PATH=/2025-my-portfolio-astro astro dev",
     "build": "astro build",
     "build:prod": "cross-env NODE_ENV=production BASE_PATH=/2025-my-portfolio-astro astro build",
-    "build:ci": "astro build --site https://seiyaiwabuchi.github.io --base /2025-my-portfolio-astro",
+    "build:ci": "cross-env NODE_ENV=production BASE_PATH=/2025-my-portfolio-astro astro build --site https://seiyaiwabuchi.github.io --base /2025-my-portfolio-astro",
     "preview": "astro preview",
     "astro": "astro",
     "test:unit": "vitest run",
