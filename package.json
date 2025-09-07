@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
-    "@rollup/rollup-linux-x64-gnu": "^4.12.0",
     "@testing-library/dom": "^8.20.1",
     "@testing-library/jest-dom": "^6.8.0",
     "@types/jsdom": "^21.1.1",
