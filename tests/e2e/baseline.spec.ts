@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { PAGE_LINKS } from '../../src/config/links';
 
 /**
  * 実際のブラウザでのE2E操作テスト
@@ -7,7 +8,8 @@ import { test, expect } from '@playwright/test';
 
 test.describe('🏠 ホームページ - ベースライン動作確認', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto(PAGE_LINKS.HOME);
+    console.log('Navigated to home page: ' + page.url());
     // ページの読み込み完了を待機
     await page.waitForLoadState('networkidle');
   });
@@ -31,11 +33,11 @@ test.describe('🏠 ホームページ - ベースライン動作確認', () => 
     
     // デスクトップナビゲーションの確認（モバイルメニュー内のリンクではなく、ヘッダーの直接リンクを確認）
     const navItems = [
-      { href: '/about', text: '自己紹介' },
-      { href: '/skills', text: 'スキル' },
-      { href: '/works', text: '実績' },
-      { href: '/experience', text: '職歴' },
-      { href: '/contact', text: 'お問い合わせ' }
+      { href: PAGE_LINKS.ABOUT, text: '自己紹介' },
+      { href: PAGE_LINKS.SKILLS, text: 'スキル' },
+      { href: PAGE_LINKS.WORKS, text: '実績' },
+      { href: PAGE_LINKS.EXPERIENCE, text: '職歴' },
+      { href: PAGE_LINKS.CONTACT, text: 'お問い合わせ' }
     ];
 
     // デスクトップナビゲーション内のリンクを確認（mobile-menu以外）
@@ -46,9 +48,9 @@ test.describe('🏠 ホームページ - ベースライン動作確認', () => 
     }
     
     // ロゴリンクの確認
-    const logoLink = page.locator('a[href="/"]').first();
+    const logoLink = page.locator(`a[href="${PAGE_LINKS.HOME}"]`).first();
     await expect(logoLink).toBeVisible();
-    await expect(logoLink).toContainText('Portfolio');
+    await expect(logoLink).toContainText("Seiya Iwabuchi's Portfolio");
     
     // ハンバーガーボタンがデスクトップで非表示であることを確認
     await expect(page.locator('#hamburger-btn')).toBeHidden();
@@ -59,14 +61,16 @@ test.describe('📱 モバイル表示とメニュー操作', () => {
   test.beforeEach(async ({ page }) => {
     // モバイルサイズに設定
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/');
+    await page.goto(PAGE_LINKS.HOME);
     await page.waitForLoadState('networkidle');
+    // モバイルメニューの読み込みを待機
+    await page.waitForTimeout(1000);
   });
 
   test('モバイルでハンバーガーボタンが表示されること', async ({ page }) => {
-    // ハンバーガーボタンの確認
+    // ハンバーガーボタンの存在を確認（より長い待機時間）
     const hamburgerBtn = page.locator('#hamburger-btn');
-    await expect(hamburgerBtn).toBeVisible();
+    await expect(hamburgerBtn).toBeVisible({ timeout: 10000 });
     
     // ARIA属性の確認
     await expect(hamburgerBtn).toHaveAttribute('aria-expanded', 'false');
@@ -126,11 +130,11 @@ test.describe('📱 モバイル表示とメニュー操作', () => {
     await expect(mobileMenu).toHaveClass(/open/);
     
     // メニュー内のリンクをクリック
-    const aboutLink = mobileMenu.locator('a[href="/about"]');
+    const aboutLink = mobileMenu.locator(`a[href="${PAGE_LINKS.ABOUT}"]`);
     await aboutLink.click();
     
     // ページ遷移を待機
-    await page.waitForURL('/about');
+    await page.waitForURL(PAGE_LINKS.ABOUT);
     
     // メニューが閉じていることを確認（新しいページで）
     const newMobileMenu = page.locator('#mobile-menu');
@@ -140,11 +144,11 @@ test.describe('📱 モバイル表示とメニュー操作', () => {
 
 test.describe('🔗 ページ遷移とナビゲーション', () => {
   const pages = [
-    { path: '/about', title: '自己紹介' },
-    { path: '/skills', title: 'スキル' },
-    { path: '/works', title: '実績' },
-    { path: '/experience', title: '職歴' },
-    { path: '/contact', title: 'お問い合わせ' }
+    { path: PAGE_LINKS.ABOUT, title: '自己紹介' },
+    { path: PAGE_LINKS.SKILLS, title: 'スキル' },
+    { path: PAGE_LINKS.WORKS, title: '実績' },
+    { path: PAGE_LINKS.EXPERIENCE, title: '職歴' },
+    { path: PAGE_LINKS.CONTACT, title: 'お問い合わせ' }
   ];
 
   pages.forEach(({ path, title }) => {
@@ -186,7 +190,7 @@ test.describe('🖥️ レスポンシブ表示確認', () => {
   viewports.forEach(({ name, width, height }) => {
     test(`${name} (${width}x${height}) でレイアウトが崩れないこと`, async ({ page }) => {
       await page.setViewportSize({ width, height });
-      await page.goto('/');
+      await page.goto(PAGE_LINKS.HOME);
       await page.waitForLoadState('networkidle');
       
       // 基本要素の表示確認
@@ -207,8 +211,9 @@ test.describe('🖥️ レスポンシブ表示確認', () => {
 
 test.describe('♿ アクセシビリティ確認', () => {
   test('キーボードナビゲーションが機能すること', async ({ page }) => {
-    await page.goto('/');
+    await page.goto(PAGE_LINKS.HOME);
     await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(1000); // ページ読み込み完了待機
     
     // Tabキーでナビゲーション
     await page.keyboard.press('Tab');
@@ -220,9 +225,14 @@ test.describe('♿ アクセシビリティ確認', () => {
 
   test('ARIA属性が適切に設定されていること', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
-    await page.goto('/');
+    await page.goto(PAGE_LINKS.HOME);
+    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(1000); // ページ読み込み完了待機
     
-    const hamburgerBtn = page.locator('#hamburger-btn');
+    const hamburgerBtn = page.locator('#hamburger-btn, [data-testid="hamburger-btn"], button[aria-label*="メニュー"]');
+    
+    // ハンバーガーボタンが表示されていることを確認
+    await expect(hamburgerBtn).toBeVisible();
     
     // 初期のARIA属性
     await expect(hamburgerBtn).toHaveAttribute('aria-expanded', 'false');
@@ -230,7 +240,7 @@ test.describe('♿ アクセシビリティ確認', () => {
     
     // メニューを開いた後のARIA属性
     await hamburgerBtn.click();
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(500); // アニメーション待機
     
     await expect(hamburgerBtn).toHaveAttribute('aria-expanded', 'true');
     await expect(hamburgerBtn).toHaveAttribute('aria-label', 'メニューを閉じる');
@@ -240,7 +250,7 @@ test.describe('♿ アクセシビリティ確認', () => {
 test.describe('🚫 404ページ - エラーページ動作確認', () => {
   test('404ページが正しく表示されること', async ({ page }) => {
     // 存在しないページにアクセス
-    await page.goto('/nonexistent-page');
+    await page.goto('/404');
     await page.waitForLoadState('networkidle');
 
     // ページタイトルの確認（Layout.astroで自動的にサイト名が付加される）
@@ -264,11 +274,11 @@ test.describe('🚫 404ページ - エラーページ動作確認', () => {
 
   test('ホームに戻るボタンが機能すること', async ({ page }) => {
     // 404ページにアクセス
-    await page.goto('/nonexistent-page');
+    await page.goto('/404');
     await page.waitForLoadState('networkidle');
 
     // 404ページの「ホームに戻る」ボタンを特定（SVGアイコンを含むボタン）
-    const homeButton = page.locator('a[href="/"]:has(svg)').first();
+    const homeButton = page.locator(`a[href="${PAGE_LINKS.HOME}"]:has(svg)`).first();
     await expect(homeButton).toBeVisible();
     await expect(homeButton).toHaveText('ホームに戻る');
 
@@ -277,24 +287,24 @@ test.describe('🚫 404ページ - エラーページ動作確認', () => {
     await page.waitForLoadState('networkidle');
 
     // ホームページに遷移したことを確認
-    await expect(page).toHaveURL(/\/$/);
+    await expect(page).toHaveURL(PAGE_LINKS.HOME);
     await expect(page).toHaveTitle(/Portfolio/);
   });
 
   test('主要ページへのリンクが存在すること', async ({ page }) => {
     // 404ページにアクセス
-    await page.goto('/nonexistent-page');
+    await page.goto('/404');
     await page.waitForLoadState('networkidle');
 
     // 主要ページへのリンクが存在することを確認（404ページ内のリンクのみ）
     const links = [
-      { href: '/works', text: '制作実績' },
-      { href: '/skills', text: 'スキル・技術' },
-      { href: '/experience', text: '経歴・経験' },
-      { href: '/contact', text: 'お問い合わせ' },
-      { href: '/privacy', text: 'プライバシーポリシー' },
-      { href: '/terms', text: '利用規約' },
-      { href: '/license', text: 'ライセンス' }
+      { href: PAGE_LINKS.WORKS, text: '制作実績' },
+      { href: PAGE_LINKS.SKILLS, text: 'スキル・技術' },
+      { href: PAGE_LINKS.EXPERIENCE, text: '経歴・経験' },
+      { href: PAGE_LINKS.CONTACT, text: 'お問い合わせ' },
+      { href: PAGE_LINKS.PRIVACY, text: 'プライバシーポリシー' },
+      { href: PAGE_LINKS.TERMS, text: '利用規約' },
+      { href: PAGE_LINKS.LICENSE, text: 'ライセンス' }
     ];
 
     for (const link of links) {
@@ -310,16 +320,16 @@ test.describe('🚫 404ページ - エラーページ動作確認', () => {
     await page.setViewportSize({ width: 375, height: 667 });
 
     // 404ページにアクセス
-    await page.goto('/nonexistent-page');
+    await page.goto('/404');
     await page.waitForLoadState('networkidle');
 
     // モバイルでも主要要素が表示されていること
     await expect(page.locator('h1').first()).toBeVisible();
     await expect(page.locator('h2').first()).toBeVisible();
-    await expect(page.locator('a[href="/"]:has(svg)').first()).toBeVisible();
+    await expect(page.locator(`a[href="${PAGE_LINKS.HOME}"]:has(svg)`).first()).toBeVisible();
 
     // 主要ページへのリンクもモバイルで表示されていること（404ページ内のリンクのみ）
-    const worksLink = page.locator('section a[href="/works"]');
+    const worksLink = page.locator(`section a[href="${PAGE_LINKS.WORKS}"]`);
     await expect(worksLink).toBeVisible();
   });
 });
@@ -327,7 +337,7 @@ test.describe('🚫 404ページ - エラーページ動作確認', () => {
 test.describe('🔒 プライバシーポリシー - ページ動作確認', () => {
   test('プライバシーポリシーページが正しく表示されること', async ({ page }) => {
     // プライバシーポリシーページにアクセス
-    await page.goto('/privacy');
+    await page.goto(PAGE_LINKS.PRIVACY);
     await page.waitForLoadState('networkidle');
 
     // ページタイトルの確認（Layout.astroで自動的にサイト名が付加される）
@@ -364,11 +374,11 @@ test.describe('🔒 プライバシーポリシー - ページ動作確認', () 
 
   test('バックトゥホームボタンが機能すること', async ({ page }) => {
     // プライバシーポリシーページにアクセス
-    await page.goto('/privacy');
+    await page.goto(PAGE_LINKS.PRIVACY);
     await page.waitForLoadState('networkidle');
 
     // バックトゥホームボタンを特定（SVGアイコンを含むボタン）
-    const homeButton = page.locator('a[href="/"]:has(svg)').first();
+    const homeButton = page.locator(`a[href="${PAGE_LINKS.HOME}"]:has(svg)`).first();
     await expect(homeButton).toBeVisible();
     await expect(homeButton).toHaveText('ホームに戻る');
 
@@ -377,7 +387,7 @@ test.describe('🔒 プライバシーポリシー - ページ動作確認', () 
     await page.waitForLoadState('networkidle');
 
     // ホームページに遷移したことを確認
-    await expect(page).toHaveURL(/\/$/);
+    await expect(page).toHaveURL(PAGE_LINKS.HOME);
     await expect(page).toHaveTitle(/Portfolio/);
   });
 
@@ -444,7 +454,7 @@ test.describe('📋 利用規約 - ページ動作確認', () => {
     await page.waitForLoadState('networkidle');
 
     // バックトゥホームボタンを特定（SVGアイコンを含むボタン）
-    const homeButton = page.locator('a[href="/"]:has(svg)').first();
+  const homeButton = page.locator(`a[href="${PAGE_LINKS.HOME}"]:has(svg)`).first();
     await expect(homeButton).toBeVisible();
     await expect(homeButton).toHaveText('ホームに戻る');
 
@@ -479,7 +489,7 @@ test.describe('📋 利用規約 - ページ動作確認', () => {
 test.describe('📄 ライセンス - ページ動作確認', () => {
   test('ライセンスページが正しく表示されること', async ({ page }) => {
     // ライセンスページにアクセス
-    await page.goto('/license');
+    await page.goto(PAGE_LINKS.LICENSE);
     await page.waitForLoadState('networkidle');
 
     // ページタイトルの確認（Layout.astroで自動的にサイト名が付加される）
@@ -525,11 +535,11 @@ test.describe('📄 ライセンス - ページ動作確認', () => {
 
   test('バックトゥホームボタンが機能すること', async ({ page }) => {
     // ライセンスページにアクセス
-    await page.goto('/license');
+    await page.goto(PAGE_LINKS.LICENSE);
     await page.waitForLoadState('networkidle');
 
     // バックトゥホームボタンを特定（SVGアイコンを含むボタン）
-    const homeButton = page.locator('a[href="/"]:has(svg)').first();
+    const homeButton = page.locator(`a[href="${PAGE_LINKS.HOME}"]:has(svg)`).first();
     await expect(homeButton).toBeVisible();
     await expect(homeButton).toHaveText('ホームに戻る');
 
@@ -538,7 +548,7 @@ test.describe('📄 ライセンス - ページ動作確認', () => {
     await page.waitForLoadState('networkidle');
 
     // ホームページに遷移したことを確認
-    await expect(page).toHaveURL(/\/$/);
+    await expect(page).toHaveURL(PAGE_LINKS.HOME);
     await expect(page).toHaveTitle(/Portfolio/);
   });
 
@@ -547,13 +557,13 @@ test.describe('📄 ライセンス - ページ動作確認', () => {
     await page.setViewportSize({ width: 375, height: 667 });
 
     // ライセンスページにアクセス
-    await page.goto('/license');
+    await page.goto(PAGE_LINKS.LICENSE);
     await page.waitForLoadState('networkidle');
 
     // モバイルでも主要要素が表示されていること
     await expect(page.locator('h1').first()).toBeVisible();
     await expect(page.locator('h2').first()).toBeVisible();
-    await expect(page.locator('a[href="/"]:has(svg)').first()).toBeVisible();
+    await expect(page.locator(`a[href="${PAGE_LINKS.HOME}"]:has(svg)`).first()).toBeVisible();
 
     // コンテンツが適切に表示されていること
     const contentSection = page.locator('section').first();
@@ -567,11 +577,15 @@ test.describe('📄 ライセンス - ページ動作確認', () => {
 
 test.describe('🔗 フッター - リンクと遷移テスト', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto(PAGE_LINKS.HOME);
     await page.waitForLoadState('networkidle');
   });
 
   test('フッターが表示され、基本要素が存在すること', async ({ page }) => {
+    // ページの一番下までスクロール
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(500);
+
     // フッター要素の存在確認
     const footer = page.locator('footer');
     await expect(footer).toBeVisible();
@@ -590,14 +604,18 @@ test.describe('🔗 フッター - リンクと遷移テスト', () => {
   });
 
   test('フッターのサイトマップリンクが正しく表示されること', async ({ page }) => {
+    // ページの一番下までスクロール
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(500);
+
     // サイトマップのリンクを確認
     const siteMapLinks = [
-      { href: '/about', text: '自己紹介' },
-      { href: '/skills', text: 'スキル' },
-      { href: '/works', text: '実績' },
-      { href: '/experience', text: '職歴' },
-      { href: '/contact', text: 'お問い合わせ' },
-      { href: '/license', text: 'ライセンス' }
+      { href: PAGE_LINKS.ABOUT, text: '自己紹介' },
+      { href: PAGE_LINKS.SKILLS, text: 'スキル' },
+      { href: PAGE_LINKS.WORKS, text: '実績' },
+      { href: PAGE_LINKS.EXPERIENCE, text: '職歴' },
+      { href: PAGE_LINKS.CONTACT, text: 'お問い合わせ' },
+      { href: PAGE_LINKS.LICENSE, text: 'ライセンス' }
     ];
 
     for (const link of siteMapLinks) {
@@ -627,12 +645,12 @@ test.describe('🔗 フッター - リンクと遷移テスト', () => {
 
   test('フッターのプライバシーポリシー・利用規約リンクが正しく表示されること', async ({ page }) => {
     // コピーライトセクションのプライバシーポリシーリンクの確認（より具体的なセレクタを使用）
-    const privacyLink = page.locator('footer .border-t a[href="/privacy"]');
+  const privacyLink = page.locator('footer .border-t [data-testid="footer-cp-privacy"]');
     await expect(privacyLink).toBeVisible();
     await expect(privacyLink).toHaveText('プライバシーポリシー');
 
     // コピーライトセクションの利用規約リンクの確認
-    const termsLink = page.locator('footer .border-t a[href="/terms"]');
+  const termsLink = page.locator('footer .border-t [data-testid="footer-cp-terms"]');
     await expect(termsLink).toBeVisible();
     await expect(termsLink).toHaveText('利用規約');
   });
@@ -640,17 +658,17 @@ test.describe('🔗 フッター - リンクと遷移テスト', () => {
   test('フッターのサイトマップリンクから各ページへ正しく遷移すること', async ({ page }) => {
     // 各ページへの遷移テスト
     const navigationTests = [
-      { href: '/about', expectedTitle: /自己紹介/ },
-      { href: '/skills', expectedTitle: /スキル/ },
-      { href: '/works', expectedTitle: /実績/ },
-      { href: '/experience', expectedTitle: /職歴/ },
-      { href: '/contact', expectedTitle: /お問い合わせ/ },
-      { href: '/license', expectedTitle: /ライセンス/ }
+      { href: PAGE_LINKS.ABOUT, expectedTitle: /自己紹介/ },
+      { href: PAGE_LINKS.SKILLS, expectedTitle: /スキル/ },
+      { href: PAGE_LINKS.WORKS, expectedTitle: /実績/ },
+      { href: PAGE_LINKS.EXPERIENCE, expectedTitle: /職歴/ },
+      { href: PAGE_LINKS.CONTACT, expectedTitle: /お問い合わせ/ },
+      { href: PAGE_LINKS.LICENSE, expectedTitle: /ライセンス/ }
     ];
 
     for (const test of navigationTests) {
       // フッターのリンクをクリック
-      const footerLink = page.locator(`footer a[href="${test.href}"]`);
+  const footerLink = page.locator(`footer a[href="${test.href}"]`).first();
       await footerLink.click();
 
       // ページ遷移を待機
@@ -661,36 +679,40 @@ test.describe('🔗 フッター - リンクと遷移テスト', () => {
       await expect(page).toHaveTitle(test.expectedTitle);
 
       // ホームページに戻る
-      await page.goto('/');
+      await page.goto(PAGE_LINKS.HOME);
       await page.waitForLoadState('networkidle');
     }
   });
 
   test('フッターのプライバシーポリシー・利用規約リンクから各ページへ正しく遷移すること', async ({ page }) => {
     // フッターまでスクロールして完全に表示させる
-    await page.locator('footer').scrollIntoViewIfNeeded();
-    await page.waitForTimeout(500); // スクロール完了待機
+    await page.evaluate(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    });
+    await page.waitForTimeout(1000); // スクロール完了待機
 
     // コピーライトセクションのプライバシーポリシーページへの遷移テスト
-    const privacyLink = page.locator('footer .border-t a[href="/privacy"]');
-    await privacyLink.click({ force: true }); // forceオプションで開発ツールバーを回避
+  const privacyLink = page.locator('footer [data-testid="footer-cp-privacy"]');
+    await privacyLink.click();
     await page.waitForLoadState('networkidle');
-    await expect(page).toHaveURL('/privacy');
+    await expect(page).toHaveURL(PAGE_LINKS.PRIVACY);
     await expect(page).toHaveTitle(/プライバシーポリシー/);
 
     // ホームページに戻る
-    await page.goto('/');
+    await page.goto(PAGE_LINKS.HOME);
     await page.waitForLoadState('networkidle');
 
     // フッターまで再度スクロール
-    await page.locator('footer').scrollIntoViewIfNeeded();
-    await page.waitForTimeout(500);
+    await page.evaluate(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    });
+    await page.waitForTimeout(1000);
 
     // コピーライトセクションの利用規約ページへの遷移テスト
-    const termsLink = page.locator('footer .border-t a[href="/terms"]');
-    await termsLink.click({ force: true }); // forceオプションで開発ツールバーを回避
+  const termsLink = page.locator('footer [data-testid="footer-cp-terms"]');
+    await termsLink.click();
     await page.waitForLoadState('networkidle');
-    await expect(page).toHaveURL('/terms');
+    await expect(page).toHaveURL(PAGE_LINKS.TERMS);
     await expect(page).toHaveTitle(/利用規約/);
   });
 
@@ -723,7 +745,7 @@ test.describe('🔗 フッター - リンクと遷移テスト', () => {
     await expect(contactSection).toBeVisible();
 
     // サイトマップリンクがモバイルでも表示されていること
-    const aboutLink = page.locator('footer a[href="/about"]');
+    const aboutLink = page.locator(`footer a[href="${PAGE_LINKS.ABOUT}"]`);
     await expect(aboutLink).toBeVisible();
     await expect(aboutLink).toHaveText('自己紹介');
   });

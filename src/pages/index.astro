@@ -1,12 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTA from '../components/CTA.astro';
-import { PAGE_LINKS, CTA_LINKS } from '../config/links';
+import { PAGE_LINKS, CTA_LINKS, ASSETS } from '../config/links';
+
+// 環境変数を使用した動的メタデータ
+const siteTitle = import.meta.env.PUBLIC_SITE_TITLE || "ホーム";
+const siteDescription = import.meta.env.PUBLIC_SITE_DESCRIPTION || "フリーランスシステムエンジニア岩渕 誠也のポートフォリオサイト。フルスタック開発・システム構築の実績とスキルをご紹介します。";
 ---
 
-<Layout 
-  title="ホーム"
-  description="フリーランスシステムエンジニア岩渕 誠也のポートフォリオサイト。フルスタック開発・システム構築の実績とスキルをご紹介します。"
+<Layout
+  title={siteTitle}
+  description={siteDescription}
   keywords="フリーランス,システムエンジニア,プログラマー,フルスタック,岩手,一関,Web開発,アプリ開発"
 >
   <!-- Hero Section -->
@@ -15,7 +19,7 @@ import { PAGE_LINKS, CTA_LINKS } from '../config/links';
       <!-- Profile Image -->
       <div class="mb-8 scale-in" data-animation="scale-in">
         <div class="w-32 h-32 mx-auto rounded-full bg-gray-200 overflow-hidden mb-6 float">
-          <img src="/images/profile.jpg" alt="プロフィール写真" class="w-full h-full object-cover" loading="eager">
+          <img src={ASSETS.PROFILE_IMAGE} alt="プロフィール写真" class="w-full h-full object-cover" loading="eager">
         </div>
       </div>
       
@@ -180,7 +184,7 @@ import { PAGE_LINKS, CTA_LINKS } from '../config/links';
         <div class="fade-in-left card-fade" data-animation="fade-in-left">
           <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm border border-gray-300 hover:shadow-md transition-shadow">
             <div class="h-48 bg-white overflow-hidden">
-              <img src="/images/gadget-compass-pc.png" alt="ガジェットコンパス PC版" class="w-full h-full object-cover object-top" loading="lazy">
+              <img src={ASSETS.GADGET_COMPASS_PC} alt="ガジェットコンパス PC版" class="w-full h-full object-cover object-top" loading="lazy">
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold text-black mb-2">ガジェットコンパス</h3>
@@ -198,7 +202,7 @@ import { PAGE_LINKS, CTA_LINKS } from '../config/links';
         <div class="fade-in-right card-fade" data-animation="fade-in-right">
           <div class="bg-gray-100 rounded-lg overflow-hidden shadow-sm border border-gray-300 hover:shadow-md transition-shadow">
             <div class="h-48 bg-white overflow-hidden">
-              <img src="/images/自動動画生成サムネ.png" alt="ポートフォリオサイト PC版" class="w-full h-full object-cover object-top" loading="lazy">
+              <img src={ASSETS.AUTO_VIDEO_THUMBNAIL} alt="ポートフォリオサイト PC版" class="w-full h-full object-cover object-top" loading="lazy">
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold text-black mb-2">ポートフォリオサイト</h3>
@@ -228,8 +232,9 @@ import { PAGE_LINKS, CTA_LINKS } from '../config/links';
     title="お気軽にご相談ください"
     description="新規開発、既存システム改修、技術コンサルティングなどあらゆるご相談に対応いたします"
     primaryButtonText="お問い合わせする"
-    primaryButtonLink="/contact"
+    primaryButtonLink={CTA_LINKS.CONTACT_US.href}
     secondaryButtonText="制作実績を見る"
+    secondaryButtonLink={CTA_LINKS.VIEW_WORKS.href}
   />
 </Layout>
 

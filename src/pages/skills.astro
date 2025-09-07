@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTA from '../components/CTA.astro';
+import { CTA_LINKS } from '../config/links';
 ---
 
 <Layout 
@@ -534,9 +535,9 @@ import CTA from '../components/CTA.astro';
     title="これらのスキルでお手伝いできます"
     description="フルスタック開発から保守・改修まで<br>幅広い技術スタックで対応いたします"
     primaryButtonText="お問い合わせ"
-    primaryButtonLink="/contact"
+    primaryButtonLink={CTA_LINKS.CONTACT_US.href}
     secondaryButtonText="制作実績を見る"
-    secondaryButtonLink="/works"
+    secondaryButtonLink={CTA_LINKS.VIEW_WORKS.href}
     backgroundColor="black"
   />
 

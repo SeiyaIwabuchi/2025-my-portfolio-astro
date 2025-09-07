@@ -1,5 +1,5 @@
 ---
-import { footerLinks, socialLinks, contactEmail } from '../config/links';
+import { footerLinks, socialLinks, contactEmail, PAGE_LINKS } from '../config/links';
 
 // 現在の年を取得
 const currentYear = new Date().getFullYear();
@@ -62,9 +62,18 @@ const currentYear = new Date().getFullYear();
         <p class="text-gray-400 text-sm">
           &copy; {currentYear} Seiya Iwabuchi's Portfolio. All rights reserved.
         </p>
-        <div class="flex space-x-6 text-gray-400 text-sm">
-          <a href="/privacy" class="hover:text-white transition-colors">プライバシーポリシー</a>
-          <a href="/terms" class="hover:text-white transition-colors">利用規約</a>
+        <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+          <div class="text-gray-400 text-sm">
+            Built with ❤️ using Astro & Tailwind CSS
+          </div>
+          <div class="flex space-x-4 text-sm">
+            <a href={PAGE_LINKS.PRIVACY} data-testid="footer-cp-privacy" class="text-gray-400 hover:text-white transition-colors duration-200">
+              プライバシーポリシー
+            </a>
+            <a href={PAGE_LINKS.TERMS} data-testid="footer-cp-terms" class="text-gray-400 hover:text-white transition-colors duration-200">
+              利用規約
+            </a>
+          </div>
         </div>
       </div>
     </div>

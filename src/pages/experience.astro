@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTA from '../components/CTA.astro';
+import { CTA_LINKS } from '../config/links';
 ---
 
 <Layout 
@@ -771,9 +772,9 @@ import CTA from '../components/CTA.astro';
   title="この経験を活かしてお手伝いします"
   description="2年間の実務経験とフリーランスでの実績を活かして<br>あなたのプロジェクトの成功をサポートします"
   primaryButtonText="お問い合わせ"
-  primaryButtonLink="/contact"
+  primaryButtonLink={CTA_LINKS.CONTACT_US.href}
   secondaryButtonText="スキルを見る"
-  secondaryButtonLink="/skills"
+  secondaryButtonLink={CTA_LINKS.VIEW_SKILLS.href}
   backgroundColor="black"
 />
 

@@ -1,5 +1,8 @@
 ---
 import "../styles/global.css";
+import { SITE_NAME, SITE_URL, ASSETS } from '../config/links';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 export interface Props {
   title: string;
@@ -13,11 +16,9 @@ const {
   title,
   description = "フリーランスシステムエンジニア岩渕 誠也のポートフォリオサイト。フルスタック開発・システム構築の実績とスキルをご紹介します。",
   keywords = "フリーランス,システムエンジニア,プログラマー,フルスタック,岩手,一関,Web開発,アプリ開発",
-  ogImage = "/images/ogp-default.jpg",
+  ogImage = ASSETS.OGP_DEFAULT,
   canonicalUrl
 } = Astro.props;
-
-import { SITE_NAME, SITE_URL } from '../config/links';
 
 // メタデータの構築
 const fullTitle = title === "ホーム" ? SITE_NAME : `${title} | ${SITE_NAME}`;
@@ -26,9 +27,6 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage
 
 // 現在のページパスを取得
 const currentPath = Astro.url.pathname;
-
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <!DOCTYPE html>
@@ -93,7 +91,7 @@ import Footer from '../components/Footer.astro';
         "https://zenn.dev/seichan",
         "mailto:0123ook.biz@gmail.com"
       ],
-      "url": "https://your-portfolio-domain.com"
+      "url": "https://SeiyaIwabuchi.github.io/2025-my-portfolio-astro/"
     }
   </script>
   
@@ -535,6 +533,7 @@ import Footer from '../components/Footer.astro';
       const target = e.target as HTMLElement;
       if (target && target.tagName === 'IMG') {
         const img = target as HTMLImageElement;
+        // 注意: JavaScript内では動的なbaseパス適用が難しいため、ハードコーディング
         img.src = '/images/placeholder.jpg';
         img.alt = '画像を読み込めませんでした';
       }

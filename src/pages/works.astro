@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTA from '../components/CTA.astro';
-import { PAGE_LINKS } from '../config/links';
+import { PAGE_LINKS, CTA_LINKS, ASSETS } from '../config/links';
 
 const title = "実績 - フリーランスエンジニアのポートフォリオ";
 const description = "これまで手がけたプロジェクトをご紹介します。Webアプリケーション開発から AI技術活用まで、幅広い領域での実績があります。";
@@ -28,14 +28,14 @@ const description = "これまで手がけたプロジェクトをご紹介し�
                 <div class="h-96 lg:h-full bg-white flex flex-col justify-center items-center space-y-4 p-8">
                     <!-- PC版画像 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-sm">
-                        <img src="/images/gadget-compass-pc.png" alt="ガジェットコンパス PC版" class="w-full h-auto object-cover">
+                        <img src={ASSETS.GADGET_COMPASS_PC} alt="ガジェットコンパス PC版" class="w-full h-auto object-cover">
                         <div class="p-2 text-center">
                             <p class="text-gray-600 text-sm font-medium">Desktop View</p>
                         </div>
                     </div>
                     <!-- スマホ版画像 -->
                     <div class="bg-white rounded-lg shadow-lg overflow-hidden w-24">
-                        <img src="/images/ガジェットコンパス_スマホ.png" alt="ガジェットコンパス スマホ版" class="w-full h-auto object-cover">
+                        <img src={ASSETS.GADGET_COMPASS_MOBILE} alt="ガジェットコンパス スマホ版" class="w-full h-auto object-cover">
                         <div class="p-1 text-center">
                             <p class="text-gray-600 text-xs">Mobile</p>
                         </div>
@@ -227,9 +227,9 @@ const description = "これまで手がけたプロジェクトをご紹介し�
                 <video 
                   controls 
                   class="w-full h-full object-cover rounded-lg"
-                  poster="/images/video-thumbnail.jpg"
+                  poster={ASSETS.VIDEO_THUMBNAIL}
                 >
-                  <source src="/videos/final_video.mp4" type="video/mp4">
+                  <source src={ASSETS.FINAL_VIDEO} type="video/mp4">
                   <div class="text-center text-white">
                     <i class="fas fa-video text-4xl mb-2"></i>
                     <p>動画デモ</p>
@@ -510,9 +510,9 @@ const description = "これまで手がけたプロジェクトをご紹介し�
     title="次のプロジェクトを始めませんか？"
     description="これまでの経験と技術を活かして、あなたのアイデアを形にします"
     primaryButtonText="お問い合わせ"
-    primaryButtonLink="/contact"
+    primaryButtonLink={CTA_LINKS.CONTACT_US.href}
     secondaryButtonText="スキルを見る"
-    secondaryButtonLink="/skills"
+    secondaryButtonLink={CTA_LINKS.VIEW_SKILLS.href}
   />
 </Layout>
 

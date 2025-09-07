@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTA from '../components/CTA.astro';
+import { CTA_LINKS } from '../config/links';
 ---
 
 <Layout 
@@ -236,7 +237,7 @@ import CTA from '../components/CTA.astro';
   primaryButtonLink="mailto:0123ook.biz@gmail.com"
   primaryButtonIcon="fas fa-envelope"
   secondaryButtonText="スキルを確認する"
-  secondaryButtonLink="/skills"
+  secondaryButtonLink={CTA_LINKS.VIEW_SKILLS.href}
   backgroundColor="black"
 />
 

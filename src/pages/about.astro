@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTA from '../components/CTA.astro';
+import { CTA_LINKS, ASSETS } from '../config/links';
 ---
 
 <Layout 
@@ -25,10 +26,10 @@ import CTA from '../components/CTA.astro';
         <div class="fade-in-left" data-animation="fade-in-left">
           <div class="text-center lg:text-left">
             <div class="w-64 h-64 mx-auto lg:mx-0 rounded-full bg-gray-200 relative mb-8 float">
-              <img src="/images/profile.jpg" alt="プロフィール写真" class="w-full h-full object-cover rounded-full" loading="eager">
+              <img src={ASSETS.PROFILE_IMAGE} alt="プロフィール写真" class="w-full h-full object-cover rounded-full" loading="eager">
               <!-- ペット画像 -->
               <div class="absolute bottom-0 right-0 w-24 h-24 rounded-full bg-white border-2 border-white shadow-lg overflow-hidden">
-                <img src="/images/sakura.jpg" alt="愛犬さくら" class="w-full h-full object-cover">
+                <img src={ASSETS.SAKURA_IMAGE} alt="愛犬さくら" class="w-full h-full object-cover">
               </div>
             </div>
             <div class="space-y-6">
@@ -258,9 +259,9 @@ import CTA from '../components/CTA.astro';
     title="一緒にプロジェクトを進めませんか？"
     description="あなたのアイデアを形にするお手伝いをさせてください"
     primaryButtonText="お問い合わせ"
-    primaryButtonLink="/contact"
+    primaryButtonLink={CTA_LINKS.CONTACT_US.href}
     secondaryButtonText="制作実績を見る"
-    secondaryButtonLink="/works"
+    secondaryButtonLink={CTA_LINKS.VIEW_WORKS.href}
   />
 </Layout>
 
