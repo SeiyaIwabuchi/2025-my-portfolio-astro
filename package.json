@@ -7,6 +7,7 @@
     "dev:prod": "cross-env BASE_PATH=/2025-my-portfolio-astro astro dev",
     "build": "astro build",
     "build:prod": "cross-env NODE_ENV=production BASE_PATH=/2025-my-portfolio-astro astro build",
+    "build:ci": "astro build --site https://seiyaiwabuchi.github.io --base /2025-my-portfolio-astro",
     "preview": "astro preview",
     "astro": "astro",
     "test:unit": "vitest run",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
+    "@rollup/rollup-linux-x64-gnu": "^4.12.0",
     "@testing-library/dom": "^8.20.1",
     "@testing-library/jest-dom": "^6.8.0",
     "@types/jsdom": "^21.1.1",
@@ -40,6 +42,12 @@
     "playwright": "^1.55.0",
     "typescript": "^5.5.0",
     "vitest": "^3.2.4"
+  },
+  "overrides": {
+    "rollup": "^4.12.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "volta": {
     "node": "22.19.0"
