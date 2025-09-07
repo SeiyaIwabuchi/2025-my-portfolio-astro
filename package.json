@@ -4,8 +4,12 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "dev:staging": "NODE_ENV=staging astro dev",
     "build": "astro build",
+    "build:staging": "NODE_ENV=staging astro build",
+    "build:prod": "NODE_ENV=production astro build",
     "preview": "astro preview",
+    "preview:staging": "NODE_ENV=staging astro preview",
     "astro": "astro",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest",
