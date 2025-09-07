@@ -119,7 +119,10 @@ test.describe('📸 ベースライン・スクリーンショット生成', () 
     { path: PAGE_LINKS.SKILLS, name: 'skills' },
     { path: PAGE_LINKS.WORKS, name: 'works' },
     { path: PAGE_LINKS.EXPERIENCE, name: 'experience' },
-    { path: PAGE_LINKS.CONTACT, name: 'contact' }
+    { path: PAGE_LINKS.CONTACT, name: 'contact' },
+    { path: PAGE_LINKS.PRIVACY, name: 'privacy' },
+    { path: PAGE_LINKS.TERMS, name: 'terms' },
+    { path: PAGE_LINKS.LICENSE, name: 'license' }
   ];
 
   // デスクトップ版テスト（chromiumプロジェクトのみ）

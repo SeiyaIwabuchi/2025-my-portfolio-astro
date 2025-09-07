@@ -66,22 +66,22 @@ export const SITE_URL = (() => {
 
 export const navItems: LinkItem[] = [
   { href: applyBasePath('/index.html'), label: 'ホーム' },
-  { href: applyBasePath('/about.html'), label: '自己紹介' },
-  { href: applyBasePath('/skills.html'), label: 'スキル' },
-  { href: applyBasePath('/works.html'), label: '実績' },
-  { href: applyBasePath('/experience.html'), label: '職歴' },
-  { href: applyBasePath('/contact.html'), label: 'お問い合わせ' }
+  { href: applyBasePath('/about/index.html'), label: '自己紹介' },
+  { href: applyBasePath('/skills/index.html'), label: 'スキル' },
+  { href: applyBasePath('/works/index.html'), label: '実績' },
+  { href: applyBasePath('/experience/index.html'), label: '職歴' },
+  { href: applyBasePath('/contact/index.html'), label: 'お問い合わせ' }
 ];
 
 export const footerLinks: LinkItem[] = [
-  { href: applyBasePath('/about.html'), label: '自己紹介' },
-  { href: applyBasePath('/skills.html'), label: 'スキル' },
-  { href: applyBasePath('/works.html'), label: '実績' },
-  { href: applyBasePath('/experience.html'), label: '職歴' },
-  { href: applyBasePath('/contact.html'), label: 'お問い合わせ' },
-  { href: applyBasePath('/privacy.html'), label: 'プライバシーポリシー' },
-  { href: applyBasePath('/terms.html'), label: '利用規約' },
-  { href: applyBasePath('/license-page.html'), label: 'ライセンス' }
+  { href: applyBasePath('/about/index.html'), label: '自己紹介' },
+  { href: applyBasePath('/skills/index.html'), label: 'スキル' },
+  { href: applyBasePath('/works/index.html'), label: '実績' },
+  { href: applyBasePath('/experience/index.html'), label: '職歴' },
+  { href: applyBasePath('/contact/index.html'), label: 'お問い合わせ' },
+  { href: applyBasePath('/privacy/index.html'), label: 'プライバシーポリシー' },
+  { href: applyBasePath('/terms/index.html'), label: '利用規約' },
+  { href: applyBasePath('/license-page/index.html'), label: 'ライセンス' }
 ];
 
 export const socialLinks: LinkItem[] = [
@@ -94,14 +94,14 @@ export const contactEmail = '0123ook.biz@gmail.com';
 // ページファイルで使用する便利な定数
 export const PAGE_LINKS = {
   HOME: applyBasePath('/index.html'),
-  ABOUT: applyBasePath('/about.html'),
-  SKILLS: applyBasePath('/skills.html'),
-  WORKS: applyBasePath('/works.html'),
-  EXPERIENCE: applyBasePath('/experience.html'),
-  CONTACT: applyBasePath('/contact.html'),
-  PRIVACY: applyBasePath('/privacy.html'),
-  TERMS: applyBasePath('/terms.html'),
-  LICENSE: applyBasePath('/license-page.html')
+  ABOUT: applyBasePath('/about/index.html'),
+  SKILLS: applyBasePath('/skills/index.html'),
+  WORKS: applyBasePath('/works/index.html'),
+  EXPERIENCE: applyBasePath('/experience/index.html'),
+  CONTACT: applyBasePath('/contact/index.html'),
+  PRIVACY: applyBasePath('/privacy/index.html'),
+  TERMS: applyBasePath('/terms/index.html'),
+  LICENSE: applyBasePath('/license-page/index.html')
 } as const;
 
 // ボタン用のリンク定義

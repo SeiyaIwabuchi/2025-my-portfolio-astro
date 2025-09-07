@@ -28,8 +28,6 @@ const getBasePath = () => {
 const basePath = getBasePath();
 const port = process.env.PORT || '4321';
 const baseURL = `http://localhost:${port}${basePath}`;
-console.log(`Using base URL: ${baseURL}`);
-console.log(process.env.NODE_ENV === 'test' ? 'npm run dev' : (process.env.NODE_ENV === 'production' ? 'npm run dev:prod' : 'npm run dev'));
 
 export default defineConfig({
   // テストディレクトリ
