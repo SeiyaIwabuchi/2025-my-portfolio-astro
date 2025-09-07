@@ -1,0 +1,152 @@
+---
+// フッターリンクの定義
+const footerLinks = [
+  { href: "/about", label: "自己紹介" },
+  { href: "/skills", label: "スキル" },
+  { href: "/works", label: "実績" },
+  { href: "/experience", label: "職歴" },
+  { href: "/contact", label: "お問い合わせ" }
+];
+
+// SNSリンクの定義
+const socialLinks = [
+  {
+    href: "https://zenn.dev/seichan",
+    icon: "fas fa-blog",
+    label: "Zenn",
+    external: true
+  },
+  {
+    href: "mailto:0123ook.biz@gmail.com",
+    icon: "fas fa-envelope",
+    label: "Email",
+    external: false
+  }
+];
+
+// 現在の年を取得
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-white py-12">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- ブランドセクション -->
+      <div data-animation="fade-in-up delay-200">
+        <h3 class="text-xl font-bold mb-4">Seiya Iwabuchi's Portfolio</h3>
+        <p class="text-gray-400">フリーランスシステムエンジニア</p>
+        <p class="text-gray-500 text-sm mt-2">
+          岩手県一関市を拠点に<br>
+          フルスタック開発・システム構築を提供
+        </p>
+      </div>
+      
+      <!-- リンクセクション -->
+      <div data-animation="fade-in-up delay-400">
+        <h3 class="text-xl font-bold mb-4">サイトマップ</h3>
+        <nav class="space-y-2">
+          {footerLinks.map((link) => (
+            <a 
+              href={link.href} 
+              class="block text-gray-400 hover:text-white transition-colors duration-200"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+      
+      <!-- SNSセクション -->
+      <div data-animation="fade-in-up delay-600">
+        <h3 class="text-xl font-bold mb-4">Contact & SNS</h3>
+        <div class="flex space-x-4 mb-4">
+          {socialLinks.map((social) => (
+            <a 
+              href={social.href}
+              target={social.external ? "_blank" : undefined}
+              rel={social.external ? "noopener noreferrer" : undefined}
+              class="text-gray-400 hover:text-white transition-colors duration-200 text-xl"
+              aria-label={social.label}
+            >
+              <i class={social.icon}></i>
+            </a>
+          ))}
+        </div>
+        <div class="text-gray-400 text-sm space-y-1">
+          <p><i class="fas fa-map-marker-alt mr-2"></i>岩手県一関市</p>
+          <p><i class="fas fa-briefcase mr-2"></i>フリーランス</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 区切り線とコピーライト -->
+    <div class="border-t border-gray-800 mt-8 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p class="text-gray-400 text-sm">
+          &copy; {currentYear} Seiya Iwabuchi's Portfolio. All rights reserved.
+        </p>
+        <div class="flex space-x-6 text-gray-400 text-sm">
+          <a href="/privacy" class="hover:text-white transition-colors">プライバシーポリシー</a>
+          <a href="/terms" class="hover:text-white transition-colors">利用規約</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* フッターアニメーション */
+  footer [data-animation] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+  }
+
+  footer [data-animation].animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ホバー効果の強化 */
+  footer a:hover {
+    transform: translateY(-1px);
+  }
+
+  /* ソーシャルアイコンのホバー効果 */
+  footer .text-xl:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+
+  /* グラデーション背景（オプション） */
+  footer {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  }
+</style>
+
+<script>
+  // フッターアニメーションの初期化
+  document.addEventListener('DOMContentLoaded', () => {
+    // Intersection Observerでフッターアニメーションを制御
+    const footerObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            footerObserver.unobserve(entry.target); // 一度だけ実行
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    // フッター内のアニメーション要素を監視
+    const footerAnimElements = document.querySelectorAll('footer [data-animation]');
+    footerAnimElements.forEach((el) => {
+      footerObserver.observe(el);
+    });
+  });
+</script>

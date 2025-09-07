@@ -1,0 +1,107 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  primaryButtonText: string;
+  primaryButtonLink: string;
+  primaryButtonIcon?: string;
+  secondaryButtonText?: string;
+  secondaryButtonLink?: string;
+  backgroundColor?: 'black' | 'gray';
+  className?: string;
+}
+
+const { 
+  title,
+  description,
+  primaryButtonText,
+  primaryButtonLink,
+  primaryButtonIcon,
+  secondaryButtonText,
+  secondaryButtonLink,
+  backgroundColor = 'black',
+  className = ''
+} = Astro.props;
+
+const bgClass = backgroundColor === 'black' ? 'bg-black text-white' : 'bg-gray-50 text-black';
+const primaryBtnClass = backgroundColor === 'black' 
+  ? 'bg-white text-black hover:bg-gray-100' 
+  : 'bg-black text-white hover:bg-gray-800';
+const secondaryBtnClass = backgroundColor === 'black'
+  ? 'border-2 border-white text-white hover:bg-white hover:text-black'
+  : 'border-2 border-black text-black hover:bg-black hover:text-white';
+---
+
+<section class={`py-20 ${bgClass} ${className}`}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div data-animation="fade-in-up">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">{title}</h2>
+      <p class="text-xl mb-8 opacity-90" set:html={description}></p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href={primaryButtonLink} 
+          class={`px-8 py-4 rounded-lg transition-all hover-lift ${primaryBtnClass}`}
+        >
+          {primaryButtonIcon && <i class={`${primaryButtonIcon} mr-2`}></i>}
+          {primaryButtonText}
+        </a>
+        {secondaryButtonText && secondaryButtonLink && (
+          <a 
+            href={secondaryButtonLink} 
+            class={`px-8 py-4 rounded-lg transition-all hover-lift ${secondaryBtnClass}`}
+          >
+            {secondaryButtonText}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hover-lift {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  /* アニメーション */
+  [data-animation*="fade-in-up"] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  [data-animation*="fade-in-up"].animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // スクロールアニメーション
+  function initCTAAnimations() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // アニメーション対象の要素を監視
+    document.querySelectorAll('[data-animation*="fade-in"]').forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  // DOMが読み込まれたら実行
+  document.addEventListener('DOMContentLoaded', initCTAAnimations);
+</script>

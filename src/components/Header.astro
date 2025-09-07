@@ -1,0 +1,207 @@
+---
+export interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+
+// ナビゲーションアイテムの定義
+const navItems = [
+  { href: "/", label: "ホーム" },
+  { href: "/about", label: "自己紹介" },
+  { href: "/skills", label: "スキル" },
+  { href: "/works", label: "実績" },
+  { href: "/experience", label: "職歴" },
+  { href: "/contact", label: "お問い合わせ" }
+];
+
+// 現在のページかどうかを判定する関数
+function isCurrentPage(href: string, currentPath: string): boolean {
+  if (href === "/" && currentPath === "/") return true;
+  if (href !== "/" && currentPath.startsWith(href)) return true;
+  return false;
+}
+
+import MobileMenu from './MobileMenu.astro';
+---
+
+<nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-[9998] border-b border-gray-200" style="transform: translateZ(0);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="/" class="text-xl font-bold text-black hover:text-gray-600 transition-colors">
+          Seiya Iwabuchi's Portfolio
+        </a>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex space-x-8">
+        {navItems.map((item) => (
+          <a 
+            href={item.href} 
+            class={`nav-link text-gray-700 hover:text-black transition-colors ${
+              isCurrentPage(item.href, currentPath) ? 'text-black font-semibold' : ''
+            }`}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+      
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button 
+          id="hamburger-btn"
+          class="hamburger-button relative w-10 h-10 text-gray-700 hover:text-black focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-lg transition-colors"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+        >
+          <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu Component -->
+<MobileMenu currentPath={currentPath} isOpen={false} />
+
+<script>
+  // ハンバーガーメニューの制御
+  function initHeaderMenu() {
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    
+    if (!hamburgerBtn) return;
+
+    // ボタンクリックイベント
+    hamburgerBtn.addEventListener('click', () => {
+      const isActive = hamburgerBtn.classList.contains('active');
+      
+      if (isActive) {
+        // メニューを閉じる
+        hamburgerBtn.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
+        
+        // モバイルメニューを閉じる
+        const closeFn = (window as any).closeMobileMenu;
+        if (closeFn) closeFn();
+      } else {
+        // メニューを開く
+        hamburgerBtn.classList.add('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+        hamburgerBtn.setAttribute('aria-label', 'メニューを閉じる');
+        
+        // モバイルメニューを開く
+        const openFn = (window as any).openMobileMenu;
+        if (openFn) openFn();
+      }
+    });
+
+    // ウィンドウサイズ変更時の処理
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        // デスクトップサイズになったらメニューを閉じる
+        hamburgerBtn.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
+        
+        const closeFn = (window as any).closeMobileMenu;
+        if (closeFn) closeFn();
+      }
+    });
+  }
+
+  // 初期化
+  document.addEventListener('DOMContentLoaded', () => {
+    initHeaderMenu();
+  });
+</script>
+
+<style>
+  /* カスタムスタイル */
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: currentColor;
+    opacity: 0.3;
+  }
+
+  /* モバイルでの固定ヘッダー問題を修正 */
+  nav {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+
+  /* ハンバーガーボタンのスタイル */
+  .hamburger-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburger-lines {
+    width: 20px;
+    height: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .line {
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  /* ハンバーガーボタンのアニメーション */
+  .hamburger-button.active .line1 {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger-button.active .line2 {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .hamburger-button.active .line3 {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* レスポンシブ調整 */
+  @media (max-width: 768px) {
+    .nav-link {
+      padding: 0.5rem 0;
+    }
+    
+    /* モバイルでの追加修正 */
+    nav {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+</style>

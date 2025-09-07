@@ -1,0 +1,281 @@
+---
+export interface Props {
+  currentPath: string;
+  isOpen: boolean;
+}
+
+const { currentPath, isOpen } = Astro.props;
+
+// ナビゲーションメニューの定義
+const navItems = [
+  { href: "/", label: "ホーム" },
+  { href: "/about", label: "自己紹介" },
+  { href: "/skills", label: "スキル" },
+  { href: "/works", label: "実績" },
+  { href: "/experience", label: "職歴" },
+  { href: "/contact", label: "お問い合わせ" }
+];
+
+// アクティブ状態の判定
+function isActiveLink(href: string, currentPath: string): boolean {
+  if (href === "/" && currentPath === "/") return true;
+  if (href !== "/" && currentPath.startsWith(href)) return true;
+  return false;
+}
+---
+
+<div 
+  id="mobile-menu" 
+  class="mobile-menu md:hidden fixed top-16 right-0 w-80 h-screen bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out translate-x-full"
+>
+  <!-- メニュー本体 -->
+  <div class="px-4 py-6 space-y-2 h-full overflow-y-auto">
+    <!-- ナビゲーションリンク -->
+    <nav class="space-y-1">
+      {navItems.map((item, index) => {
+        const isActive = isActiveLink(item.href, currentPath);
+        return (
+          <a 
+            href={item.href} 
+            class={`
+              block px-4 py-3 rounded-lg text-left transition-all duration-200 hover:bg-gray-100
+              ${isActive 
+                ? 'bg-black text-white font-medium' 
+                : 'text-gray-700 hover:text-black'
+              }
+            `}
+            data-animation="slide-in-right"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <span class="flex items-center">
+              <i class={`
+                ${item.href === "/" ? "fas fa-home" : ""}
+                ${item.href === "/about" ? "fas fa-user" : ""}
+                ${item.href === "/skills" ? "fas fa-code" : ""}
+                ${item.href === "/works" ? "fas fa-briefcase" : ""}
+                ${item.href === "/experience" ? "fas fa-building" : ""}
+                ${item.href === "/contact" ? "fas fa-envelope" : ""}
+                mr-3 text-sm w-4
+              `}></i>
+              {item.label}
+            </span>
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- 区切り線 -->
+    <div class="border-t border-gray-200 my-6"></div>
+
+    <!-- SNSリンク -->
+    <div class="space-y-3">
+      <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wider px-4">Contact & SNS</h3>
+      <div class="space-y-1">
+        <a 
+          href="https://zenn.dev/seichan"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center px-4 py-3 text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
+          data-animation="slide-in-right"
+          style="animation-delay: 600ms"
+        >
+          <i class="fas fa-blog mr-3 text-sm w-4"></i>
+          <span>Zenn ブログ</span>
+          <i class="fas fa-external-link-alt ml-auto text-xs text-gray-400"></i>
+        </a>
+        
+        <a 
+          href="mailto:0123ook.biz@gmail.com"
+          class="flex items-center px-4 py-3 text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
+          data-animation="slide-in-right"
+          style="animation-delay: 700ms"
+        >
+          <i class="fas fa-envelope mr-3 text-sm w-4"></i>
+          <span>メール</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ステータス表示 -->
+    <div class="mt-8 px-4">
+      <div 
+        class="p-4 bg-gray-50 rounded-lg border border-gray-200"
+        data-animation="fade-in"
+        style="animation-delay: 800ms"
+      >
+        <div class="flex items-center mb-2">
+          <div class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+          <span class="text-sm font-medium text-gray-800">案件参画中</span>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed">
+          賃貸検索・管理サービス開発<br>
+          新規案件についてはご相談ください
+        </p>
+      </div>
+    </div>
+
+    <!-- フッター情報 -->
+    <div class="mt-auto pt-6 px-4 text-center">
+      <p class="text-xs text-gray-400">
+        &copy; 2025 Seiya Iwabuchi's Portfolio
+      </p>
+    </div>
+  </div>
+
+  <!-- オーバーレイ背景 -->
+  <div 
+    id="mobile-menu-overlay" 
+    class="fixed inset-0 bg-transparent z-10 transition-opacity duration-300 opacity-0 pointer-events-none"
+  ></div>
+</div>
+
+<style>
+  /* メニューの初期状態を確実に非表示にする */
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu.open {
+    display: block;
+    transform: translateX(0);
+  }
+
+  /* メニュー項目のアニメーション */
+  [data-animation="slide-in-right"] {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: slideInRight 0.4s ease forwards;
+  }
+
+  [data-animation="fade-in"] {
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  @keyframes slideInRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* アクティブリンクのホバー効果調整 */
+  .mobile-menu a.bg-black:hover {
+    background-color: #374151 !important;
+  }
+
+  /* スクロールバーのカスタマイズ */
+  .mobile-menu::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .mobile-menu::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  .mobile-menu::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+  }
+
+  /* ホバー効果の強化 */
+  .mobile-menu a:not(.bg-black):hover {
+    transform: translateX(4px);
+  }
+
+  /* レスポンシブ調整 */
+  @media (max-width: 360px) {
+    .mobile-menu {
+      width: 100vw;
+      right: 0;
+    }
+  }
+
+  /* 縮小モーション設定の尊重 */
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu,
+    .mobile-menu * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+
+<script>
+  // モバイルメニューの制御
+  function initMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (!mobileMenu) return;
+
+    // メニューを閉じる関数
+    function closeMobileMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.remove('open');
+      }
+      // オーバーレイは使用しない
+      
+      // ハンバーガーボタンの状態をリセット
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      if (hamburgerBtn) {
+        hamburgerBtn.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
+      }
+      
+      // body のスクロールを復活
+      document.body.style.overflow = '';
+    }
+
+    // メニューを開く関数
+    function openMobileMenu() {
+      if (mobileMenu) {
+        mobileMenu.classList.add('open');
+      }
+      // オーバーレイは使用しない
+      
+      // body のスクロールを無効化
+      document.body.style.overflow = 'hidden';
+    }
+
+    // ESCキーで閉じる
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
+        closeMobileMenu();
+      }
+    });
+
+    // リンククリック時に閉じる
+    if (mobileMenu) {
+      const menuLinks = mobileMenu.querySelectorAll('a[href^="/"]');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          // 遷移を妨げないようにタイマーを削除し、即座にメニューを閉じる
+          closeMobileMenu();
+        });
+      });
+    }
+
+    // ウィンドウサイズ変更時の処理
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        closeMobileMenu();
+      }
+    });
+
+    // グローバルにアクセス可能にする
+    (window as any).openMobileMenu = openMobileMenu;
+    (window as any).closeMobileMenu = closeMobileMenu;
+  }
+
+  // 初期化
+  document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
+  });
+</script>
