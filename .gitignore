@@ -26,3 +26,15 @@ pnpm-debug.log*
 .playwright-mcp
 .serena
 .vscode
+
+# Playwright テスト関連
+test-results
+playwright-report
+coverage
+
+# ビジュアルリグレッション関連
+# ベースラインスクリーンショットは含める（チーム共有のため）
+# tests/e2e/**-snapshots/ をバージョン管理に含める
+# 
+# 除外する場合は以下をコメントアウト：
+# tests/e2e/*-snapshots/

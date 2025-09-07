@@ -6,7 +6,17 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
+    "test:unit:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:chromium": "playwright test --project=chromium",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:headed": "playwright test --headed",
+    "test:baseline": "playwright test --update-snapshots",
+    "test:all": "npm run test:unit && npm run test:e2e"
   },
   "dependencies": {
     "@astrojs/tailwind": "^6.0.2",
@@ -16,5 +26,12 @@
   },
   "volta": {
     "node": "22.19.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/jsdom": "^21.1.7",
+    "jsdom": "^26.1.0",
+    "playwright": "^1.55.0",
+    "vitest": "^3.2.4"
   }
 }

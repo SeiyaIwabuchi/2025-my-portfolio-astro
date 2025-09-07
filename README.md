@@ -65,17 +65,94 @@ Astroは `src/pages/` ディレクトリ内の `.astro` または `.md` ファ�
 | `npm run astro ...`       | `astro add`, `astro check` などのCLIコマンドを実行 |
 | `npm run astro -- --help` | Astro CLIのヘルプを表示                        |
 
-## �️ 開発について
+## 🧪 テスト
 
-このポートフォリオサイトは以下の特徴があります：
+開発中は以下のコマンドでテストを実行できます。E2E（Playwright）はローカルサーバーが必要です（`npm run dev` を別ターミナルで実行してください）。
 
-- **レスポンシブデザイン**: デスクトップ・タブレット・スマートフォンに対応
-- **高速表示**: Astroの静的サイト生成による最適化
-- **SEOフレンドリー**: メタタグとstructured dataの最適化
-- **アクセシビリティ**: WAI-ARIAガイドラインに準拠
+### ユニットテスト（Vitest）
 
-## 👀 もっと学びたい方へ
+- **基本実行**
 
-- [Astro公式ドキュメント](https://docs.astro.build)
-- [Astro Discordサーバー](https://astro.build/chat)
-- [Tailwind CSS公式ドキュメント](https://tailwindcss.com/docs)
+```powershell
+npm run test:unit
+```
+
+- **ウォッチモード（ファイル変更時に自動再実行）**
+
+```powershell
+npm run test:unit:watch
+```
+
+- **カバレッジ測定**
+
+```powershell
+npm run test:unit:coverage
+```
+
+### E2Eテスト（Playwright）
+
+※先に dev サーバーを起動してから実行してください。
+
+- **全ブラウザでテスト実行**
+
+```powershell
+npm run test:e2e
+```
+
+- **Chromiumのみでテスト実行**
+
+```powershell
+npm run test:e2e:chromium
+```
+
+- **UI モードでテスト実行（ブラウザでテスト状況を確認）**
+
+```powershell
+npm run test:e2e:ui
+```
+
+- **デバッグモード（ステップ実行）**
+
+```powershell
+npm run test:e2e:debug
+```
+
+- **ヘッドモード（ブラウザを表示してテスト実行）**
+
+```powershell
+npm run test:e2e:headed
+```
+
+### ビジュアルリグレッションテスト
+
+ビジュアルリグレッションテストは、ベースライン画像と現在のスクリーンショットを比較して視覚的な変更を検出します。
+
+- **ベースライン画像との比較テスト**
+
+```powershell
+npm run test:e2e
+```
+※既存のベースライン画像と比較し、差異があればテスト失敗
+
+- **ベースライン画像の作成・更新**
+
+```powershell
+npm run test:baseline
+```
+※新しいベースライン画像を作成または既存のものを更新（意図的な変更時のみ使用）
+
+### 統合テスト
+
+- **すべてのテストを順に実行**
+
+```powershell
+npm run test:all
+```
+
+### テストレポート
+
+- **E2E テストレポートをブラウザで表示**
+
+```powershell
+npx playwright show-report
+```
