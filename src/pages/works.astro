@@ -222,22 +222,21 @@ const description = "これまで手がけたプロジェクトをご紹介し�
         <div class="grid lg:grid-cols-2 gap-0">
           <!-- Video/Demo -->
           <div data-animation="fade-in-left" class="relative">
-            <div class="h-96 lg:h-full bg-gradient-to-br from-gray-200 to-gray-300 flex flex-col justify-center items-center p-8">
-              <div class="bg-black rounded-lg w-full max-w-lg aspect-video flex items-center justify-center overflow-hidden">
-                <video 
-                  controls 
-                  class="w-full h-full object-cover rounded-lg"
-                  poster={ASSETS.VIDEO_THUMBNAIL}
-                >
-                  <source src={ASSETS.FINAL_VIDEO} type="video/mp4">
-                  <div class="text-center text-white">
-                    <i class="fas fa-video text-4xl mb-2"></i>
-                    <p>動画デモ</p>
-                    <p class="text-sm text-gray-300 mt-2">お使いのブラウザは動画をサポートしていません</p>
-                  </div>
-                </video>
+            <div class="h-96 lg:h-full bg-gradient-to-br from-gray-200 to-gray-300 flex flex-col justify-center items-center p-4 sm:p-8">
+              <div class="bg-black w-full max-w-sm sm:max-w-md lg:max-w-lg flex justify-center">
+                <div class="relative w-full" style="aspect-ratio: 16/9;">
+                  <iframe
+                    class="absolute inset-0 w-full h-full rounded-lg"
+                    src="https://www.youtube.com/embed/5mMgkGnVtwg?si=oBDQj5cNSo2H1k-C"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                  </iframe>
+                </div>
               </div>
-              <p class="text-center text-gray-600 text-sm mt-4">動画自動生成システムのデモ</p>
+              <p class="text-center text-gray-600 text-sm mt-4 px-4">動画自動生成システムのデモ</p>
             </div>
           </div>
           
