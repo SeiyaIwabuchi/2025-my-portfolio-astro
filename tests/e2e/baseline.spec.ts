@@ -236,3 +236,87 @@ test.describe('♿ アクセシビリティ確認', () => {
     await expect(hamburgerBtn).toHaveAttribute('aria-label', 'メニューを閉じる');
   });
 });
+
+test.describe('🚫 404ページ - エラーページ動作確認', () => {
+  test('404ページが正しく表示されること', async ({ page }) => {
+    // 存在しないページにアクセス
+    await page.goto('/nonexistent-page');
+    await page.waitForLoadState('networkidle');
+
+    // ページタイトルの確認（Layout.astroで自動的にサイト名が付加される）
+    await expect(page).toHaveTitle('ページが見つかりません | Seiya Iwabuchi\'s Portfolio');
+
+    // 404の数字が表示されていること
+    const errorNumber = page.locator('h1').first();
+    await expect(errorNumber).toBeVisible();
+    await expect(errorNumber).toHaveText('404');
+
+    // エラーメッセージが表示されていること
+    const errorTitle = page.locator('h2').first();
+    await expect(errorTitle).toBeVisible();
+    await expect(errorTitle).toHaveText('ページが見つかりません');
+
+    // 説明文が表示されていること（404ページ内の説明文を特定）
+    const errorDescription = page.locator('section p').first();
+    await expect(errorDescription).toBeVisible();
+    await expect(errorDescription).toContainText('お探しのページは存在しないか');
+  });
+
+  test('ホームに戻るボタンが機能すること', async ({ page }) => {
+    // 404ページにアクセス
+    await page.goto('/nonexistent-page');
+    await page.waitForLoadState('networkidle');
+
+    // 404ページの「ホームに戻る」ボタンを特定（SVGアイコンを含むボタン）
+    const homeButton = page.locator('a[href="/"]:has(svg)').first();
+    await expect(homeButton).toBeVisible();
+    await expect(homeButton).toHaveText('ホームに戻る');
+
+    // ボタンをクリックしてホームページに遷移
+    await homeButton.click();
+    await page.waitForLoadState('networkidle');
+
+    // ホームページに遷移したことを確認
+    await expect(page).toHaveURL(/\/$/);
+    await expect(page).toHaveTitle(/Portfolio/);
+  });
+
+  test('主要ページへのリンクが存在すること', async ({ page }) => {
+    // 404ページにアクセス
+    await page.goto('/nonexistent-page');
+    await page.waitForLoadState('networkidle');
+
+    // 主要ページへのリンクが存在することを確認（404ページ内のリンクのみ）
+    const links = [
+      { href: '/works', text: '制作実績' },
+      { href: '/skills', text: 'スキル・技術' },
+      { href: '/experience', text: '経歴・経験' },
+      { href: '/contact', text: 'お問い合わせ' }
+    ];
+
+    for (const link of links) {
+      // 404ページ内のリンクを特定（ヘッダーやフッターのリンクを除外）
+      const linkElement = page.locator(`section a[href="${link.href}"]`);
+      await expect(linkElement).toBeVisible();
+      await expect(linkElement).toHaveText(link.text);
+    }
+  });
+
+  test('404ページのナビゲーションがモバイル対応であること', async ({ page }) => {
+    // モバイルサイズに設定
+    await page.setViewportSize({ width: 375, height: 667 });
+
+    // 404ページにアクセス
+    await page.goto('/nonexistent-page');
+    await page.waitForLoadState('networkidle');
+
+    // モバイルでも主要要素が表示されていること
+    await expect(page.locator('h1').first()).toBeVisible();
+    await expect(page.locator('h2').first()).toBeVisible();
+    await expect(page.locator('a[href="/"]:has(svg)').first()).toBeVisible();
+
+    // 主要ページへのリンクもモバイルで表示されていること（404ページ内のリンクのみ）
+    const worksLink = page.locator('section a[href="/works"]');
+    await expect(worksLink).toBeVisible();
+  });
+});

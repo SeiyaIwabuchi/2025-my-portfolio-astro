@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="ページが見つかりません"
+  description="お探しのページは存在しないか、移動した可能性があります。ホームに戻って他のページをご覧ください。"
+>
+  <!-- 404 Section -->
+  <section class="min-h-screen pt-12 flex justify-center bg-gradient-to-b from-gray-50 to-white px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <!-- 404 Number -->
+      <div class="mb-8">
+        <h1 class="text-3xl md:text-3xl font-bold text-gray-200 mb-4 select-none">404</h1>
+      </div>
+
+      <!-- Error Message -->
+      <div class="mb-8">
+        <h2 class="text-3xl md:text-3xl font-bold text-gray-900 mb-4">
+          ページが見つかりません
+        </h2>
+        <p class="text-lg text-gray-600 mb-8 max-w-md mx-auto">
+          お探しのページは存在しないか、移動・削除された可能性があります。
+          URLをご確認の上、再度アクセスをお試しください。
+        </p>
+      </div>
+
+      <!-- Navigation Options -->
+      <div class="space-y-6">
+        <!-- Primary CTA -->
+        <div>
+          <a href="/" class="inline-flex items-center px-8 py-4 bg-black text-white rounded-lg hover:bg-gray-800 transition-all duration-300 hover-lift transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            ホームに戻る
+          </a>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <p class="text-gray-500 mb-4">または以下のページからお探しの情報をお探しください：</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="/works" class="px-6 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+              制作実績
+            </a>
+            <a href="/skills" class="px-6 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+              スキル・技術
+            </a>
+            <a href="/experience" class="px-6 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+              経歴・経験
+            </a>
+            <a href="/contact" class="px-6 py-3 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+              お問い合わせ
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Help -->
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <div class="text-sm text-gray-500">
+          <p class="mb-2">お探しのページが移動した可能性があります。</p>
+          <p>サイト内検索や上記のリンクから目的のページをお探しください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hover-lift {
+    transition: all 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+</style>
