@@ -300,21 +300,21 @@ const description = "これまで手がけたプロジェクトをご紹介し�
         <div data-animation="fade-in-left delay-200" class="bg-white rounded-lg p-8 shadow-sm">
           <div class="text-center mb-6">
             <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-              <i class="fas fa-cut text-white text-2xl"></i>
+              <i class="fas fa-video text-white text-2xl"></i>
             </div>
-            <h4 class="text-xl font-bold text-black">データのチャンク化処理の最適化</h4>
+            <h4 class="text-xl font-bold text-black">プログラム動画編集システムの構築</h4>
           </div>
           <div class="space-y-4">
             <div>
               <h5 class="font-semibold text-black mb-2">課題</h5>
               <p class="text-gray-700 text-sm">
-                長い記事をLLMの入力制限内に分割する際、文脈の連続性を保つことが困難
+                そもそもプログラム上で動画編集する試みが初めてであり、また音声生成、スライド作成をどのようにAIと組み合わせるかが見えていなかった。
               </p>
             </div>
             <div>
               <h5 class="font-semibold text-black mb-2">解決策</h5>
               <p class="text-gray-700 text-sm">
-                単純な文字数分割から段落単位での分割へ変更し、文章の意味的な区切りを識別する仕組みを実装
+                試行錯誤を繰り返し、AIによる台本とマークダウンスライドの生成を実現し、これらを連結、合成することで実現できることが分かった。
               </p>
             </div>
           </div>
@@ -331,13 +331,13 @@ const description = "これまで手がけたプロジェクトをご紹介し�
             <div>
               <h5 class="font-semibold text-black mb-2">課題</h5>
               <p class="text-gray-700 text-sm">
-                各チャンクで生成されたコンテンツのトーンや文体が微妙に異なり、つなぎ合わせた際に不自然な境界が発生
+                大きなテキストではチャンク化が必要だが、各チャンクで生成されたコンテンツのトーンや文体が微妙に異なり、つなぎ合わせた際に不自然な境界が発生
               </p>
             </div>
             <div>
               <h5 class="font-semibold text-black mb-2">解決策</h5>
               <p class="text-gray-700 text-sm">
-                チャンク間の整合性検証処理と境界部分の自然な接続ロジックを開発、全体の文脈を維持するコンテキスト管理機能を追加
+                生成プロンプトの微調整を繰り返し、確実に一貫したトーンとスタイルを維持するよう改善
               </p>
             </div>
           </div>
@@ -360,7 +360,7 @@ const description = "これまで手がけたプロジェクトをご紹介し�
             <div>
               <h5 class="font-semibold text-black mb-2">解決策</h5>
               <p class="text-gray-700 text-sm">
-                リトライロジックを実装し、APIレスポンスの検証機能を追加、不完全なデータが返された場合の自動再生成システムを構築
+                リトライロジックを実装し、APIレスポンスの検証機能を追加、不完全なデータが返されても継続して処理を進められるように改善
               </p>
             </div>
           </div>

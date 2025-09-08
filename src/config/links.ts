@@ -129,4 +129,5 @@ export const ASSETS = {
   OGP_DEFAULT: applyBasePath('/images/profile.jpg'),
   VIDEO_THUMBNAIL: applyBasePath('/images/video-thumbnail.jpg'),
   PLACEHOLDER: applyBasePath('/images/placeholder.jpg'),
+  FAVICON: applyBasePath('/favicon.png')
 } as const;
